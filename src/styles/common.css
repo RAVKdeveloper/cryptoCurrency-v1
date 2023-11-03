@@ -1,0 +1,34 @@
+
+/* Import reset css */
+
+@import './reset.css';
+
+
+/* Import styles */
+
+@import './founts/founts.css';
+
+/* Common styles */
+
+html,body{
+    font-family: 'IBM Plex Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    user-select: none;
+}
+
+:root{
+
+    /* Text vars */
+
+   --color-text: #000;
+   --color-accent: #f7a600;
+
+   /* Header vars */
+
+   --blackback: #17181e;
+   --header-text: #fff;
+   --backg-li: #191a1c;
+}

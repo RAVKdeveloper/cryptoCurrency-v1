@@ -1,0 +1,110 @@
+.bell__sidebar__header{
+    position: absolute;
+    background: var(--backg-li);
+    padding: 10px;
+    top: 41px;
+    right: 50px;
+    width: 350px;
+    border-radius: 4px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s ease;
+}
+
+.bell__image__hover__wrap:hover .bell__sidebar__header{
+    opacity: 1;
+    pointer-events: all;
+    transition: all .4s ease;
+}
+
+/* Card value mails */
+
+.bell__sidebar__card__title__notific{
+    background-color: rgba(88, 85, 85, 0.3);
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.value__notific__sidebar__header{
+    color: var(--header-text);
+}
+
+.value__notific__sidebar__header span{
+    color: var(--color-accent);
+    font-size: 16px;
+}
+
+.view__more__bell__notific__header{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #cdc9c9;
+    transition: color .3s ease;
+}
+
+.view__more__bell__notific__header img{
+    width: 13px;
+    height: 13px;
+}
+
+.view__more__bell__notific__header:hover{
+    color: var(--color-accent);
+    transition: color .3s ease;
+}
+
+/* Mails */
+
+.notific__bell__sidebar__wrap__header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.card__notific__bell__sidebar__header__body{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all .4s ease;
+}
+
+.card__notific__bell__sidebar__header__body:hover{
+    background-color: rgba(66, 65, 65, 0.4);
+    transition: all .4s ease;
+}
+
+.icon__card__notific{
+    width: 20px;
+    height: 20px;
+}
+
+.column__info__natific__bell__sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.title__card__bell__sidebar{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--header-text);
+}
+
+.desc__card__bell__sidebar{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgb(60, 59, 59);
+}

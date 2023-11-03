@@ -1,0 +1,109 @@
+.header{
+    width: 100%;
+    background: var(--blackback);
+    padding: 14px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+}
+
+/* Logo & Nav */
+
+.logo__nav__header__row{
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.logo__header{
+    width: 56.3px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.navigation__header__ul__list{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    color: var(--header-text);
+    font-size: 14px;
+    transition: color .5s ease;
+    cursor: pointer;
+}
+.header__main__li{
+    position: relative;
+}
+
+.header__main__li:hover{
+    color: var(--color-accent);
+    transition: color .4s ease;
+}
+
+
+/* Avatar row */
+
+.account__header__row{
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.btn__deposit__header{
+    background: var(--color-accent);
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.btn__deposit__header:hover{
+    background: #e7b249;
+    transition: all .3s ease;
+}
+
+.avatar__icon__header{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.bell__icon__header{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.dowloand__icon__header{
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+
+/* Hover img */
+
+.bell__icon__header:hover{
+    background-color: rgba(153, 151, 151, 0.5);
+    border-radius: 2px;
+    transition: all .3s ease;
+}
+
+.dowloand__icon__header:hover{
+    background-color: rgba(153, 151, 151, 0.5);
+    border-radius: 2px;
+    transition: all .3s ease;
+}
+
+.avatar__icon__header:hover{
+    transform: translate(-2px,-2px);
+    transition: all .5s ease;
+} 
+

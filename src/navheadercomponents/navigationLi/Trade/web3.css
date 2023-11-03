@@ -1,0 +1,21 @@
+.web3__menu__header{
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    
+    width: 300px;
+    background-color: var(--backg-li);
+    padding: 20px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease;
+}
+
+.web3__li__header:hover .web3__menu__header{
+    opacity: 1;
+    pointer-events: all;
+    transition: all .2s ease;
+    top: 15px;
+    left: 0;
+}

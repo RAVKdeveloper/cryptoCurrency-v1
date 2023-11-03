@@ -1,0 +1,83 @@
+.header__avatar__sidebar{
+    position: absolute;
+    width: 300px;
+    right: -300px;
+    top: 42px;
+    background: var(--backg-li);
+    padding: 20px;
+    border-radius: 4px;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.avatar__image__hover__wrap:hover .header__avatar__sidebar{
+    opacity: 1;
+    pointer-events: all;
+    right: 0px;
+    transition: all .4s ease;
+}
+
+/* Avatar Info */
+
+.avatar__info__sidebar__header__row{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar__img__sidebar__header{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all .5s ease;
+}
+
+.avatar__img__sidebar__header:hover{
+    transform: translate(-3px,-3px);
+    transition: all .5s ease;
+}
+
+.info__user__sidebar__header__column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email__user__info__sidebar__header{
+    color: var(--header-text);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.uid__user__info__sidebar__header{
+    color: rgba(148, 141, 141, 0.6);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Button row */
+
+.btn__row__avatar__sidebar__header{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.btn__avatar__sidebar__header{
+   width: 100%;
+   background-color: rgba(70, 66, 66, 0.7);
+   border-radius: 4px;
+   border: 1px solid rgb(82, 79, 79);
+   box-shadow: inset 1px rgb(82, 79, 79); 
+   padding: 5px;
+   color: red;
+   transition: all .4s ease;
+}
+
+.btn__avatar__sidebar__header:hover{
+    background-color: red;
+    color: var(--header-text);
+    transition: all .4s ease;
+}

@@ -1,0 +1,62 @@
+.buycrypto__menu__header{
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    
+    width: 300px;
+    background-color: var(--backg-li);
+    padding: 20px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease;
+}
+
+.buy__crupto__li:hover .buycrypto__menu__header{
+    opacity: 1;
+    pointer-events: all;
+    transition: all .2s ease;
+    top: 15px;
+    left: 0;
+}
+
+.nav__buycryto__card__header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.nav__buycryto__card__header li{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    color: var(--header-text);
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all .4s ease;
+}
+
+.nav__buycryto__card__header li:hover{
+    background-color: rgba(176, 176, 176, 0.2);
+    color: var(--color-accent);
+    transition: all .4s ease;
+}
+
+.title__buycrypto__card{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.desc__buycrypto__card{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(162, 160, 160);
+    opacity: 0.7;
+}
+
+.nav__buycryto__card__header li:hover .desc__buycrypto__card {
+    color: var(--color-accent);
+    transition: all .4s ease;
+}
