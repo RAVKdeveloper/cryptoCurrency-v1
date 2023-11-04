@@ -1,0 +1,118 @@
+
+/* Сбрасываю стили кнопок swipera */
+
+.swiper-button-prev::after{
+    display: none;
+}
+.swiper-button-next::after{
+    display: none;
+}
+
+.swiper-button-prev{
+    width: 25px !important;
+    height: 25px !important;
+    border-radius: 50%;
+    background: var(--color-accent);
+    position: absolute;
+    left: 3px !important;
+    top: 100px !important;
+    opacity: 0 !important;
+    padding-bottom: 1px;
+    padding-right: 3px;
+    transition: opacity .5s ease;
+}
+
+.swiper-button-prev::before{
+    content: '<';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--header-text);
+}
+
+.swiper-button-next{
+    width: 25px !important;
+    height: 25px !important;
+    border-radius: 50%;
+    background: var(--color-accent);
+    position: absolute;
+    right: 11px !important;
+    top: 100px !important;
+    opacity: 0 !important;
+    padding-bottom: 1px;
+    padding-left: 3px;
+    transition: opacity .5s ease;
+}
+
+.swiper-button-next::before{
+    content: '>';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--header-text);
+}
+
+.swiper:hover .swiper-button-next{
+    opacity: 1 !important;
+    transition: opacity .5s ease;
+}
+.swiper:hover .swiper-button-prev{
+    opacity: 1 !important;
+    transition: opacity .5s ease;
+}
+
+/* Делаю контент */
+
+.container__slider__main{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent;
+    padding-top: 40px;
+}
+
+.card__slider__main{
+    width: 384px;
+    height: 100px;
+    background: var(--back-white);
+    padding: 7px 32px 8px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all .5s ease;
+}
+
+.card__slider__main:hover{
+    transform: translate(-4px,-4px);
+    transition: all .5s ease;
+}
+
+
+.card__image__slider__main{
+    width: 78px;
+    height: 85px;
+    pointer-events: none;
+}
+
+.info__card__slider__main__body{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--colortext-main);
+    user-select: none;
+}
+
+.title__card__slider__main{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}

@@ -25,10 +25,18 @@ img{
 
    --color-text: #000;
    --color-accent: #f7a600;
+   --colortext-main: #121214;
+   --links-color: #d6850d;
 
    /* Header vars */
 
    --blackback: #17181e;
    --header-text: #fff;
    --backg-li: #191a1c;
+
+   /* Main */
+
+   --back-main: #f5f7fa;
+   --back-white: #fff;
+   --noactive-color: #81858c;
 }

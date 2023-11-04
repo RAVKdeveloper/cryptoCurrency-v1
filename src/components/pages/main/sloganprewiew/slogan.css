@@ -1,0 +1,49 @@
+.slogan__prewiv{
+    width: 100%;
+    background-image: url('../../../../img/mainPage/sloganPrew/backroundSloganprew.webp');
+    background-size: cover;
+    background-position: 50%;
+    background-color: rgb(32, 32, 32);
+    background-repeat: no-repeat;
+    height: 500px;
+    padding-left: 100px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.prize__pool__title__slogan{
+    font-size: 52px;
+    color: var(--header-text);
+    font-weight: 700;
+}
+.sprint__prize__pool__slogan__prew{
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+/* Btn */
+
+.btn__slogan__prewiev{
+    width: 300px;
+    height: 64px;
+    background-color: var(--color-accent);
+    font-size: 24px;
+    color: var(--colortext-main);
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.btn__slogan__prewiev img{
+    width: 20px;
+    height: 20px;
+}
