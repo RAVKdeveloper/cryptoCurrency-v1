@@ -52,6 +52,7 @@
     background: var(--back-white);
     padding: 24px 24px 10px 24px;
     border-radius: 10px;
+    height: 474px;
 }
 
 /* Tabs */
@@ -122,4 +123,213 @@
 }
 .charts__span__home__trading{
     padding-right: 80px;
+}
+
+
+/* Cards */
+
+.cards__hotderivateves__row{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__hotderivateves__home__trading__prewiev{
+    width: 672px;
+    height: 60px;
+    padding: 6px 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.card__hotderivateves__home__trading__prewiev:hover{
+    box-shadow: 0 0 12px rgba(0,0,0,.12);
+    transition: all .4s ease;
+}
+
+.image__name__card__hotderivateves__body{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image__name__card__hotderivateves__body img{
+    width: 28px;
+    height: 28px;
+}
+.image__name__card__hotderivateves__body span{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}
+.card__info__hotderivateves__body{
+    display: flex;
+    align-items: center;
+    gap: 56px;
+}
+.price__num__card__hotderivateves{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}
+.price__procent__card__hotderivateves{
+    font-size: 16px;
+    font-weight: 700;
+    color: #20b26c;
+}
+.charts__card__hotderivateves{
+    width: 53px;
+    height: 27px;
+}
+.btn__trade__card__hotderivateves{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-accent);
+    background-color: transparent;
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+    width: 56px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s ease;
+}
+
+.card__hotderivateves__home__trading__prewiev:hover .btn__trade__card__hotderivateves{
+    background: var(--color-accent);
+    color: var(--colortext-main);
+    transition: all .4s ease;
+}
+
+
+/* Top gainers wrapper */
+
+.wrapper__top__gainers__trading__prewiev{
+    background: var(--back-white);
+    border-radius: 10px;
+    padding: 24px 24px 10px 24px;
+}
+
+/* Title */
+
+.title__top__gainers__trading__prewiev{
+    color: var(--colortext-main);
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.title__top__gainers__trading__prewiev::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(171, 170, 170);
+    opacity: 0.1;
+}
+
+/* Cards */
+
+.cards_top__gainers__row{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__top__gainers__body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    width: 410px;
+    height: 52px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.card__top__gainers__body:hover{
+    box-shadow: 0 0 12px rgba(0,0,0,.12);
+    transition: all .4s ease;
+}
+
+.image__name__card__top__gainers__row{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.image__name__card__top__gainers__row img{
+    width: 28px;
+    height: 28px;
+}
+.image__name__card__top__gainers__row span{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}
+
+.info__card__top__gainers__row{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.price__info__top__gainers__card{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}
+
+.priceprocent__info__top__gainers__card{
+    font-size: 16px;
+    font-weight: 700;
+    color: #20b26c;
+}
+
+/* New Listing */
+
+
+.title__new__listing__trading__prewiev{
+    padding-top: 45px;
+}
+
+/* Button */
+
+.btn__deposit__home__trading__prewiev{
+    margin-top: 20px;
+    width: 228px;
+    height: 48px;
+    background: var(--color-accent);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--colortext-main);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.btn__deposit__home__trading__prewiev img{
+    width: 14px;
+    height: 14px;
+}
+
+.btn__deposit__home__trading__prewiev:hover{
+    background: #ffc35c;
+    transition: all .4s ease;
 }

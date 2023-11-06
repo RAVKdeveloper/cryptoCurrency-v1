@@ -4,6 +4,7 @@ import SloganPrewiew from "./sloganprewiew/SloganPrewiew";
 
 import './main.css';
 import TradingMainPrewiev from "./TradingMain/TradingMainPrewiev";
+import DiscoverMore from "./DiscoverMore/DiscoverMore";
 
 function MainPage () {
 
@@ -15,6 +16,7 @@ return (
 <div className="main__container">
 <CaruselMain/>
 <TradingMainPrewiev/>
+<DiscoverMore/>
 </div>
 </main>
 
