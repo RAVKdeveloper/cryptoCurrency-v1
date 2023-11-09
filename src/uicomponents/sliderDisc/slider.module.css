@@ -1,0 +1,155 @@
+.slider{
+    width: 570px;
+    padding: 0 30px;
+    height: 285px;
+}
+
+.slider__slide{
+   width: 266px !important;
+   height: 285px;
+   padding: 24px 20px;
+   background: rgba(159, 161, 163, 0.2);
+   border-radius: 10px;
+   cursor: pointer;
+   user-select: none;
+}
+
+/* Info */
+
+.user__info__body{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.image__avatar{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.user__info__column{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nick{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}
+
+.followers{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--noactive-color);
+}
+
+.titles__slide{
+    padding-top: 34px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--noactive-color);
+}
+.value__slide{
+    padding-top: 6px;
+    color: var(--colortext-main);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.titles__slide__two{
+    padding-top: 24px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--noactive-color);
+}
+
+/* Close */
+
+.copy__slide__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+}
+.link{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+}
+.arrow__link{
+    width: 16px;
+    height: 16px;
+    transition: color .4s ease;
+}
+
+.arrow__link:hover{
+    color: var(--color-accent);
+    transition: color .4s ease;
+}
+
+/* Slider big */
+
+.slider__slide.big{
+    width: 500px !important;
+}
+.big__row__img{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.img__big{
+    width: 44px;
+    height: 44px;
+}
+.nick__big{
+    color: var(--colortext-main);
+    font-size: 18px;
+    font-weight: 700;
+}
+.sticker__nick{
+    background: #f7a60029;
+    color: var(--color-accent);
+    font-size: 12px;
+    padding: 4px 8px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+/* Column */
+
+.price__sup__column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 35px;
+}
+.column__row{
+    display: flex;
+    gap: 200px;
+    align-items: center;
+}
+.column__big{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.title__big{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--noactive-color);
+}
+.value__big{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--colortext-main);
+}
+.column__row__two{
+    display: flex;
+    gap: 130px;
+}
+.copy__slide__row.big__link{
+    margin-top: 10px;
+}
