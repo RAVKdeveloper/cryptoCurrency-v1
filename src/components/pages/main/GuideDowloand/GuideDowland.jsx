@@ -38,7 +38,7 @@ function GuideDowloand () {
             </div>
             <div className={Style.card}>
                 <img className={Style.card__img} src={apiImg} alt="api" />
-                <p className={Style.name__card}>API  </p>
+                <p className={Style.name__card}>API</p>
             </div>
         </div>
        </div>

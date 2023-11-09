@@ -7,6 +7,8 @@ import TradingMainPrewiev from "./TradingMain/TradingMainPrewiev";
 import DiscoverMore from "./DiscoverMore/DiscoverMore";
 import NewProductCard from "./NewProductCards/NewProductCards";
 import GuideDowloand from "./GuideDowloand/GuideDowland";
+import StatisticMain from "./StatisticContent/Statistic";
+import Comitet from "./Commitet/Comitet";
 
 function MainPage () {
 
@@ -21,6 +23,8 @@ return (
 <DiscoverMore/>
 <NewProductCard/>
 <GuideDowloand/>
+<StatisticMain/>
+<Comitet/>
 </div>
 </main>
 
