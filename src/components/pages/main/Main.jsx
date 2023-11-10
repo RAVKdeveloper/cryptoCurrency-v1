@@ -9,6 +9,10 @@ import NewProductCard from "./NewProductCards/NewProductCards";
 import GuideDowloand from "./GuideDowloand/GuideDowland";
 import StatisticMain from "./StatisticContent/Statistic";
 import Comitet from "./Commitet/Comitet";
+import NeedHelp from "./NeedHelp/NeedHelp";
+import BigImg from "./BigImage/BigImage";
+import CryptoJourney from "./CryptoJourney/CryptoJourney";
+import CompanyShow from "./CompanyShow/CompanyShow";
 
 function MainPage () {
 
@@ -25,7 +29,11 @@ return (
 <GuideDowloand/>
 <StatisticMain/>
 <Comitet/>
+<NeedHelp/>
+<BigImg/>
 </div>
+<CryptoJourney/>
+<CompanyShow/>
 </main>
 
 )

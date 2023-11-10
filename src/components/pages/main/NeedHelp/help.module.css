@@ -1,0 +1,59 @@
+
+.need__help{
+    padding-top: 64px;
+}
+
+/* Title */
+
+.title{
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--colortext-main);
+    padding-bottom: 24px;
+}
+
+/* Card */
+
+.wrapper__card{
+    display: flex;
+    justify-content: space-between;
+    padding: 26px 24px 20px;
+    background: var(--back-white);
+    border-radius: 12px;
+}
+
+.card{
+   max-width: 345.6px;
+   height: 202px;
+   position: relative;
+}
+
+.img__card{
+    width: 48px;
+    height: 48px;
+}
+.title__card{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--colortext-main);
+    padding-top: 20px;
+}
+
+.card__desc{
+    padding-top: 13px;
+    height: 72px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--noactive-color);
+    line-height: 24px;
+}
+
+.link__card{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+}
