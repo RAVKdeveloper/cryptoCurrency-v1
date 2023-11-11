@@ -1,4 +1,5 @@
 
+import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import MainPage from './components/pages/main/Main';
 import './styles/common.css';
@@ -11,6 +12,7 @@ function App() {
         <Header/>
         <PremainMess/>
         <MainPage/>
+        <Footer/>
     </div>
   );
 }
