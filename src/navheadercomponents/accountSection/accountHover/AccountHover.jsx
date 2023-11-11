@@ -1,10 +1,14 @@
 
+import { useContext } from 'react';
 import avatarImg from './../../../img/header/avatar icon.jpeg';
 
 import './acchover.css';
+import { UserContext } from '../../../App';
 
 
 function AccountHover () {
+
+const { btnRow, setBtnROw } = useContext(UserContext)
 
 return (
 
@@ -17,7 +21,7 @@ return (
             </div>
         </div>
         <div className="btn__row__avatar__sidebar__header">
-            <button className="btn__avatar__sidebar__header">Logout</button>
+            <button onClick={() => setBtnROw(true)} className="btn__avatar__sidebar__header">Logout</button>
         </div>
     </aside>
 )

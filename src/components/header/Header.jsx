@@ -14,11 +14,13 @@ import Web3LiHEader from '../../navheadercomponents/navigationLi/Trade/Web3Li';
 import AccountHover from '../../navheadercomponents/accountSection/accountHover/AccountHover';
 import BellHover from '../../navheadercomponents/accountSection/bellHover/BellHover';
 import DowloandHover from '../../navheadercomponents/accountSection/dowloandHover/DowloandHover';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../App';
+
 
 function Header () {
 
-const [btnRow, setBtnROw] = useState(true);
+    const { btnRow, setBtnROw } = useContext(UserContext)
 
 return (
 

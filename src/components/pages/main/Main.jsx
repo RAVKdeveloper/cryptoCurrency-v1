@@ -13,8 +13,12 @@ import NeedHelp from "./NeedHelp/NeedHelp";
 import BigImg from "./BigImage/BigImage";
 import CryptoJourney from "./CryptoJourney/CryptoJourney";
 import CompanyShow from "./CompanyShow/CompanyShow";
+import { UserContext } from "../../../App";
+import { useContext } from "react";
 
 function MainPage () {
+
+    const { btnRow, setBtnROw } = useContext(UserContext)
 
 return (
 
@@ -27,8 +31,14 @@ return (
 <DiscoverMore/>
 <NewProductCard/>
 <GuideDowloand/>
+{
+    btnRow ?
+<> 
 <StatisticMain/>
 <Comitet/>
+</>
+ : null
+}
 <NeedHelp/>
 <BigImg/>
 </div>
