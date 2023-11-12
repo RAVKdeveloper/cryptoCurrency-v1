@@ -16,6 +16,7 @@ import BellHover from '../../navheadercomponents/accountSection/bellHover/BellHo
 import DowloandHover from '../../navheadercomponents/accountSection/dowloandHover/DowloandHover';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
+import { NavLink } from 'react-router-dom';
 
 
 function Header () {
@@ -26,7 +27,9 @@ return (
 
 <header className="header">
     <section className="logo__nav__header__row">
+        <NavLink to="/">
         <img src={logoHeader} alt="logo" className="logo__header" />
+        </NavLink>
         <nav className="navigation__header">
             <ul className='navigation__header__ul__list'>
                 <li onClick={() => setBtnROw(false)} className='header__main__li buy__crupto__li'>Buy Crypto
@@ -54,7 +57,9 @@ return (
     <section className="account__header__row">
     <div className="btn__deposit__header">Deposit</div>
     <div className="avatar__image__hover__wrap">
+    <NavLink to="/dashbord">
     <img src={avatarImg} alt="avatar" className="avatar__icon__header" />
+    </NavLink>
     <AccountHover/>
     </div>
     <div className="bell__image__hover__wrap">
