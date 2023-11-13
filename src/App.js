@@ -7,7 +7,7 @@ import Header from './components/header/Header';
 import MainPage from './components/pages/main/Main';
 import './styles/common.css';
 import PremainMess from './uicomponents/premainmess/Premainmess';
-import Test from './components/testapi/Test';
+// import Test from './components/testapi/Test';
 import Dashbord from './components/pages/dashbord/Dashbord';
 import Error from './components/pages/Error404/Error';
 import ScrollToTop from './utils/ScrollToTop/ScrollToTop';
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <ScrollToTop/>
+      <ScrollToTop />
       <UserContext.Provider value={{ btnRow, setBtnROw }}>
         <Header/>
         <PremainMess/>

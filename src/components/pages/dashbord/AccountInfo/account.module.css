@@ -1,0 +1,82 @@
+.account__info{
+    width: 100%;
+    padding: 24px;
+    background: var(--back-white);
+    border-radius: 12px;
+}
+
+/* Avatar Row */
+
+.avatar__row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar{
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: 50%;
+}
+
+.nickname{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--colortext-main);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* SubAvatar Row */
+
+.sub__avatar__row{
+    padding-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--noactive-color);
+}
+.value{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+.arrow{
+    padding-left: 5px;
+    padding-top: 3px;
+}
+
+.title.title__hover{
+    cursor: pointer;
+}
+
+.title.title__hover:hover{
+    color: var(--colortext-main);
+}
+.title.title__hover:hover img{
+    color: var(--colortext-main);
+}
+
+.value.value__img{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sucsell{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}

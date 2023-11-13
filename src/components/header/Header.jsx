@@ -3,7 +3,7 @@ import './header.css';
 // Import images
 
 import logoHeader from './../../img/logoheader.svg';
-import avatarImg from './../../img/header/avatar icon.jpeg';
+import avatarImg from './../../img/header/avatar.png';
 import bellImg from './../../img/header/icons8-bell-45.png';
 import dowloandImg from './../../img/header/icons8-download-45.png';
 

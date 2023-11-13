@@ -1,0 +1,17 @@
+.dashbord{
+    width: 100%;
+    background: var(--back-main);
+    padding: 82px 0 80px;
+}
+
+/* Container */
+
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

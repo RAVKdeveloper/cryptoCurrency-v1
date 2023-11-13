@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import avatarImg from './../../../img/header/avatar icon.jpeg';
+import avatarImg from './../../../img/header/avatar.png';
 
 import './acchover.css';
 import { UserContext } from '../../../App';
