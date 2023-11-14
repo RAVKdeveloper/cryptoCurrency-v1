@@ -1,14 +1,31 @@
 
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
 import avatarImg from './../../../img/header/avatar.png';
 
 import './acchover.css';
-import { UserContext } from '../../../App';
+import { URL } from '../../../components/pages/dashbord/AccountInfo/AccountInfo';
 
 
 function AccountHover () {
 
-const { btnRow, setBtnROw } = useContext(UserContext)
+const [click, setClick] = useState(false)
+
+useEffect(() => {
+  if(click === true) {
+      fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'PUT',                                                              
+           body: JSON.stringify( { "active": "0" } ) 
+      })
+      .then(res => {
+        return res.json()
+      }) 
+      .then(arr => window.location.href="http://localhost:3000")
+  }
+}, [click])
 
 return (
 
@@ -21,7 +38,7 @@ return (
             </div>
         </div>
         <div className="btn__row__avatar__sidebar__header">
-            <button onClick={() => setBtnROw(true)} className="btn__avatar__sidebar__header">Logout</button>
+            <button onClick={() => setClick(true)} className="btn__avatar__sidebar__header">Logout</button>
         </div>
     </aside>
 )

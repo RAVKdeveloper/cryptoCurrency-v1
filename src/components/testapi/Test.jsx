@@ -40,11 +40,10 @@ const searchApi = search !== '' ? `?search=${search}` : ''
              .then(arr => {
                 if(Array.isArray(arr)) {
                     setItems(arr);
-                    console.log(arr)
                 } else {
                     setItems([arr])
                 }
-                console.log(arr)
+                
              })
 }         
     }, [click, getitem, search])

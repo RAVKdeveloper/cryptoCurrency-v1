@@ -14,14 +14,36 @@ import Web3LiHEader from '../../navheadercomponents/navigationLi/Trade/Web3Li';
 import AccountHover from '../../navheadercomponents/accountSection/accountHover/AccountHover';
 import BellHover from '../../navheadercomponents/accountSection/bellHover/BellHover';
 import DowloandHover from '../../navheadercomponents/accountSection/dowloandHover/DowloandHover';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
+import { useContext, useEffect, useState } from 'react';
+import { AccountContext, UserContext } from '../../App';
 import { NavLink } from 'react-router-dom';
+import { URL } from '../pages/dashbord/AccountInfo/AccountInfo';
 
 
 function Header () {
 
     const { btnRow, setBtnROw } = useContext(UserContext)
+    const { userId, setUserId } = useContext(AccountContext)
+    const [click, setClick] = useState(false);
+
+    useEffect(() => {
+        if(click === true) {
+            fetch(URL, {
+             headers: {
+                 'Accept': 'application/json',
+                 'Content-Type': 'application/json'
+               },
+               method: 'PUT',                                                              
+                body: JSON.stringify( { "active": "1" } ) 
+            })
+            .then((res) => {
+              console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
+    }, [click])
 
 return (
 
@@ -32,7 +54,7 @@ return (
         </NavLink>
         <nav className="navigation__header">
             <ul className='navigation__header__ul__list'>
-                <li onClick={() => setBtnROw(false)} className='header__main__li buy__crupto__li'>Buy Crypto
+                <li onClick={() => setClick(true)} className='header__main__li buy__crupto__li'>Buy Crypto
                 <BuyCrypto/>
                 </li>
                 <li className='header__main__li'>Markets</li>
