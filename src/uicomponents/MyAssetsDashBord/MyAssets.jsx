@@ -14,7 +14,7 @@ function MyAssets () {
     const [eyeActive, setEyeActive] = useState(false);
 
     const addEye = eyeActive ? eyeNoActiveImg : eyeImg
-
+    
     return(
 
        <section className={style.myAssets}>

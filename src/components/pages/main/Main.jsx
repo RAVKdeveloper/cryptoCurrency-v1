@@ -15,13 +15,16 @@ import CryptoJourney from "./CryptoJourney/CryptoJourney";
 import CompanyShow from "./CompanyShow/CompanyShow";
 import { UserContext } from "../../../App";
 import { useContext } from "react";
+import Header from "../../header/Header";
+import Footer from "../../footer/Footer";
 
 function MainPage () {
 
     const { btnRow, setBtnROw } = useContext(UserContext)
 
 return (
-
+<>
+<Header/>
 <main className="main__main">
 <SloganPrewiew/>
 <RunString/>
@@ -45,7 +48,8 @@ return (
 <CryptoJourney/>
 <CompanyShow/>
 </main>
-
+<Footer/>
+</>
 )
 
 }

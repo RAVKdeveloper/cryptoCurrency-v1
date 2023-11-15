@@ -1,5 +1,6 @@
 import MyAssets from '../../../../uicomponents/MyAssetsDashBord/MyAssets';
-import Test from '../../../testapi/Test';
+import Recommendate from '../../../../uicomponents/Recommendet/Recommendate';
+// import Test from '../../../testapi/Test';
 import style from './style.module.css';
 
 
@@ -9,7 +10,7 @@ function BottomModule () {
 
         <section className={style.bottomModule}>
             <MyAssets/>
-            <Test/>
+            <Recommendate/>
         </section>
     )
 }
