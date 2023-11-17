@@ -1,0 +1,103 @@
+.root{
+    padding-top: 80px;
+    padding-left: 270px;
+    color: var(--colortext-main);
+}
+
+.root.dark{
+    color: #fff;
+}
+
+/* Title */
+
+.title{
+    font-size: 28px;
+    font-weight: 600;
+    user-select: none;
+}
+
+
+/* Form */
+
+.form{
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.label{
+    padding-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    user-select: none;
+}
+
+.input{
+    width: 384px;
+    height: 48px;
+    border: 1px solid rgb(234, 236, 239);
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 4px 12px;
+
+    font-size: 14px;
+    color: var(--noactive-color);
+    transition: border-color .3s ease;
+}
+
+.input:focus{
+    border-color: var(--color-accent);
+    transition: border-color .3s ease;
+}
+
+/* politik kondishenal */
+
+.pk{
+    color: var(--noactive-color);
+    font-weight: 500;
+    max-width: 384px;
+    line-height: 20px;
+}
+
+.pk .span{
+    color: var(--colortext-main);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color .4s ease;
+}
+
+.pk .span:hover{
+    color: var(--color-accent) !important;
+    transition: color .4s ease;
+}
+
+.pk .span.dark{
+    color: var(--header-text);
+}
+
+/* Button */
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 24px;
+    max-width: 384px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--color-accent);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+
+/* Server error */
+
+
+.userUndefined{
+    color: red;
+    font-size: 16px;
+    font-weight: 600;
+}

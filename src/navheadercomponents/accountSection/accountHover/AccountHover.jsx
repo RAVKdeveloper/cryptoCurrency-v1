@@ -15,7 +15,7 @@ const [click, setClick] = useState(false)
 
 useEffect(() => {
   if(click === true) {
-      fetch(`${URL}/${userId}`, {
+      fetch(userId !== null ?`${URL}/${userId}` : null, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -27,6 +27,7 @@ useEffect(() => {
         return res.json()
       }) 
       .then(arr =>{ 
+        localStorage.removeItem('auth')
         window.location.href="http://localhost:3000"
       })
   }

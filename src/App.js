@@ -11,6 +11,7 @@ import ScrollToTop from './utils/ScrollToTop/ScrollToTop';
 import { URL } from './components/pages/dashbord/AccountInfo/AccountInfo';
 import PreLoader from './uicomponents/PreLoader/PreLoader';
 import Registration from './components/pages/Auth/Registration/Registration';
+import Login from './components/pages/Auth/Login/Login';
 
 export const UserContext = createContext(true);
 export const AccountContext = createContext('');
@@ -22,6 +23,8 @@ function App() {
   const [userId, setUserId] = useState(localStorage.getItem('auth'));
   const [ userNick, setUserNick ] = useState('')
   const [loader, setLoader] = useState(true);
+
+  console.log(userId)
 
   useEffect(() => {
     if(userId !== '' && userId !== undefined && userId !== null) {
@@ -63,7 +66,10 @@ function App() {
         <Route path='/' element={<MainPage/>}/>
         {
           btnRow ? 
+          <>
           <Route path='/user/registration' element={<Registration/>}/>
+          <Route path='/user/login' element={<Login/>}/>
+          </>
           :
           <Route path='/dashbord' element={<Dashbord/>}/>
         }
