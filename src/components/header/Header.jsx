@@ -72,8 +72,12 @@ return (
     {
         btnRow === true ? 
         <section className="btn__reg__log__row">
+            <NavLink to={"/user/login"}>
         <div className="button__log">Log In</div>
+            </NavLink>
+        <NavLink to={"/user/registration"}>
         <div className="btn__reg">Sign Up</div>
+        </NavLink>
     </section> 
     :
     <section className="account__header__row">

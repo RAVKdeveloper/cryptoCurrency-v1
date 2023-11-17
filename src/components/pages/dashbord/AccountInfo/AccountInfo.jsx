@@ -4,28 +4,15 @@ import style from './account.module.css';
 import avatarImg from './../../../../img/DashboardPage/AccountInfo/avatar.png';
 import arrow from './../../../../img/DashboardPage/AccountInfo/arrow.svg';
 import sucsell from './../../../../img/DashboardPage/AccountInfo/sucsell.svg';
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Skeleton from './../../../Skeleton/Skeleton';
+import { AccountContext } from '../../../../App';
 
-export let URL = `https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/users/6`;
+export let URL = `https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/users`;
 
-function AccountInfo () {
+function AccountInfo ({ skeleton, name }) {
 
-    const [name, setName] = useState('')
-    const [skeleton, setSkeleton] = useState(true)
-
-    useEffect(() => {
-       fetch(URL, {
-        method: 'GET'
-       })
-       .then((res) => {
-         return res.json()
-       })
-       .then(arr => {
-        setName(arr.name)
-        setSkeleton(false)
-       })
-    }, [])
+    const { userId } = useContext(AccountContext)
 
     return(
 
@@ -43,7 +30,7 @@ function AccountInfo () {
           <div className={style.sub__avatar__row}>
               <div className={style.column}>
                   <p className={style.title}>UID</p>
-                  <p className={style.value}>57462444</p>
+                  <p className={style.value}>567{userId}</p>
               </div>
               <div className={style.column}>
                   <p className={`${style.title} ${style.title__hover}`}>Account Info <img src={arrow} alt="arrow" className={style.arrow} /></p>

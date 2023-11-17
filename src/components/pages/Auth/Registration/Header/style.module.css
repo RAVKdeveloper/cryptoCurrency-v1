@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px 16px;
+}
+
+.logoText{
+    font-size: 30px;
+    color: var(--color-accent);
+    font-weight: 600;
+    user-select: none;
+}
+
+.moon{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: color .4s ease;
+}
+
+.moon:hover{
+    color: var(--color-accent);
+    transition: color .4s ease;
+}
+
+.sun{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: #fff;
+    transition: color .4s ease;
+}
+
+.sun:hover{
+    color: var(--color-accent);
+    transition: color .4s ease;
+}

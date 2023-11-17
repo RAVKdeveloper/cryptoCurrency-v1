@@ -9,11 +9,21 @@ import tutorialImg from './../../img/DashboardPage/MyAssets/tutorial.svg';
 import faqImg from './../../img/DashboardPage/MyAssets/deposit-faq.svg';
 
 
-function MyAssets () {
+function MyAssets ({ balance, btcBalance, setBtcBalance }) {
 
     const [eyeActive, setEyeActive] = useState(false);
 
     const addEye = eyeActive ? eyeNoActiveImg : eyeImg
+
+    let strlenght = balance.length;
+
+    let btcTrue = balance === '0.00' ? btcBalance : JSON.stringify(Number(balance) / 36000);
+
+    // let btcLenght = btcBalance.length;
+
+    //  console.log(btcLenght)
+
+    setBtcBalance(btcTrue)
     
     return(
 
@@ -24,8 +34,8 @@ function MyAssets () {
         </div>
         <div className={style.balance}>
             <p className={style.title__balance}>Total Assets</p>
-            <p className={style.value__balance}>{eyeActive ? '****' + '0.00'.substring(4) : '0.00'} USD</p>
-            <p className={style.value__btc}>= {eyeActive ? '**********' + '0.000000000'.substring(11) : '0.000000000'} BTC</p>
+            <p className={style.value__balance}>{eyeActive ? '***' + balance.substring(strlenght) : balance} USD</p>
+            <p className={style.value__btc}>= {eyeActive ? '***' + btcBalance.substring(100) : btcBalance} BTC</p>
         </div>
         <div className={style.assetsEmpty}>
             <p className={style.title__empty}>Your hassle-free gateway to buying and depositing Crypto</p>
