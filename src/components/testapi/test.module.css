@@ -15,3 +15,16 @@
     background-color: red;
     color: white;
 }
+
+.btn__test{
+    padding: 10px;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.counter{
+    padding-bottom: 15px;
+    font-size: 30px;
+    padding-left: 20px;
+}

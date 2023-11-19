@@ -4,12 +4,12 @@ import Recommendate from '../../../../uicomponents/Recommendet/Recommendate';
 import style from './style.module.css';
 
 
-function BottomModule ({ balance, btcBalance, setBtcBalance }) {
+function BottomModule () {
 
     return(
 
         <section className={style.bottomModule}>
-            <MyAssets balance={balance} btcBalance={btcBalance} setBtcBalance={setBtcBalance}/>
+            <MyAssets/>
             <Recommendate/>
         </section>
     )

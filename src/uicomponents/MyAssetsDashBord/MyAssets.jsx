@@ -7,23 +7,26 @@ import buyCrypto from './../../img/DashboardPage/MyAssets/buy-crypto.svg';
 import depositCrypto from './../../img/DashboardPage/MyAssets/deposit-crypto.svg';
 import tutorialImg from './../../img/DashboardPage/MyAssets/tutorial.svg';
 import faqImg from './../../img/DashboardPage/MyAssets/deposit-faq.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { setBalanceBtc } from './../../redux/Slices/userInfo'
+import { NavLink } from 'react-router-dom';
 
 
-function MyAssets ({ balance, btcBalance, setBtcBalance }) {
+function MyAssets () { 
 
     const [eyeActive, setEyeActive] = useState(false);
+    const userBalance = useSelector((state) => state.userInfo.item)
+    const userBtc = useSelector((state) => state.userInfo.btcBalance)
+    const { balance } = userBalance
+    const dispatch = useDispatch();
 
     const addEye = eyeActive ? eyeNoActiveImg : eyeImg
 
-    let strlenght = balance.length;
-
-    let btcTrue = balance === '0.00' ? btcBalance : JSON.stringify(Number(balance) / 36000);
-
-    // let btcLenght = btcBalance.length;
-
-    //  console.log(btcLenght)
-
-    setBtcBalance(btcTrue)
+    let btcTrue = balance === '0.00' ? userBtc : JSON.stringify(Number(balance) / 36000);
+ 
+    if(balance !== undefined && balance !== null) {
+        dispatch(setBalanceBtc(btcTrue))
+     } 
     
     return(
 
@@ -34,8 +37,8 @@ function MyAssets ({ balance, btcBalance, setBtcBalance }) {
         </div>
         <div className={style.balance}>
             <p className={style.title__balance}>Total Assets</p>
-            <p className={style.value__balance}>{eyeActive ? '***' + balance.substring(strlenght) : balance} USD</p>
-            <p className={style.value__btc}>= {eyeActive ? '***' + btcBalance.substring(100) : btcBalance} BTC</p>
+            <p className={style.value__balance}>{eyeActive ? '***' + balance.substring(100) : balance} USD</p>
+            <p className={style.value__btc}>= {eyeActive ? '***' + userBtc.substring(100) : userBtc} BTC</p>
         </div>
         <div className={style.assetsEmpty}>
             <p className={style.title__empty}>Your hassle-free gateway to buying and depositing Crypto</p>
@@ -55,13 +58,15 @@ function MyAssets ({ balance, btcBalance, setBtcBalance }) {
                 <div className={style.left__row}>
                     <img src={depositCrypto} alt="icon" className={style.icon__card} />
                     <article className={style.column}>
-                        <p className={style.title__column}>Deposit Crypto</p>
+                        <div className={style.title__column}>
+                            Deposit Crypto
+                        </div>
                         <p className={style.subtitle__column}>Already own crypto? Deposit instantly to your account!</p>
                     </article>
                 </div>
-                <div className={style.right__row}>
+                <NavLink to={"/user/assets/deposit"} className={style.right__row}>
                     Deposit
-                </div>
+                </NavLink>
             </div>
             <div className={style.guide__to__deposit}>
             <p className={style.text}>How to deposit?</p>

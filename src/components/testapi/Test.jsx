@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import s from './test.module.css';
+import Testtwo from './Testtwo';
 
 
 function Test () {
@@ -73,7 +74,8 @@ const searchApi = search !== '' ? `?search=${search}` : ''
             :
             <div>error</div>
         }
-    </section>
+        <Testtwo/>
+       </section>
  )
 }
 

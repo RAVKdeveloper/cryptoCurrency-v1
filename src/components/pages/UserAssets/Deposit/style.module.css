@@ -1,0 +1,14 @@
+.root{
+    width: 100%;
+    padding-top: 100px;
+}
+
+.container{
+    background: var(--back-main);
+}
+
+.formFaq__row{
+    padding: 40px 15px 80px;
+    margin: 0 auto;
+    max-width: 1230px;
+}

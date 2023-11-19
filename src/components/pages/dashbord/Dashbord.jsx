@@ -6,6 +6,8 @@ import BottomModule from './BottomModule/BottomModule';
 import RevardsExlusive from './ExlusiveRevards/Revards';
 import style from './style.module.css';
 import { AccountContext } from '../../../App';
+import { useSelector, useDispatch } from 'react-redux';
+import { setItem } from '../../../redux/Slices/userInfo';
 
 
 function Dashbord () {
@@ -13,8 +15,12 @@ function Dashbord () {
     const [name, setName] = useState('')
     const [skeleton, setSkeleton] = useState(true)
     const [balance, setBalance] = useState('0.00')
-    const [btcBalance, setBtcBalance] = useState('0.000000000')
     const { userId } = useContext(AccountContext)
+
+    // Redux
+
+    const user = useSelector((state) => state.userInfo.item)
+    const dispatch = useDispatch() 
 
     useEffect(() => {
        fetch(`${URL}/${userId}`, {
@@ -27,6 +33,7 @@ function Dashbord () {
         setName(arr.name)
         setSkeleton(false)
         setBalance(arr.balance)
+        dispatch(setItem(arr))
        })
     }, [])
 
@@ -37,7 +44,7 @@ function Dashbord () {
         <div className={style.container}>
             <AccountInfo skeleton={skeleton} name={name}/>
             <RevardsExlusive/>
-            <BottomModule balance={balance} btcBalance={btcBalance} setBtcBalance={setBtcBalance}/>
+            <BottomModule />
         </div>
         </section>
         <FooterDashboard/>
