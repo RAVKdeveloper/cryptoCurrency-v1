@@ -79,3 +79,17 @@
 .inputBox{
     position: relative;
 }
+
+
+/* Qr */
+
+.qrBox{
+    padding-top: 52px;
+}
+
+.title__qr{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--colortext-main);
+    padding-bottom: 16px;
+}

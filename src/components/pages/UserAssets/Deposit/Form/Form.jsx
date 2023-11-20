@@ -1,15 +1,16 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setOpenModal } from '../../../../../redux/Slices/depositUser';
 import TextField from '../../../../../uicomponents/TextField/TextField';
 import style from './style.module.css';
 import Modal from '../../../../../uicomponents/ModalSearchTextField/SearchCrypto/Modal';
-
+import TextFieldChain from '../../../../../uicomponents/TextField/TextFieldChain/TextField';
+import ModalChain from '../../../../../uicomponents/ModalSearchTextField/SearchChain/Modal';
+import { useSelector } from 'react-redux';
+import DepositDetails from '../../../../../uicomponents/DepositDetails/DepositDetails';
+import Prewiev from '../../../../../uicomponents/DepositPrewiev/Preiwev';
 
 
 function DepositForm () {
 
-    const clickCrypto = useSelector((state) => state.depositUser.clickCrypto)
-    const dispatch = useDispatch();
+    const isChain = useSelector(state => state.depositUser.isPrewievChain)
 
     return (
 
@@ -24,7 +25,21 @@ function DepositForm () {
                 <form className={style.form}>
                     <fieldset className={style.inputBox}>
                      <TextField title="Choose coin to deposit" placeHolder="Select crypto"/>
+                     <Prewiev/>
                      <Modal/>
+                    </fieldset> 
+                    <fieldset className={style.inputBox}>
+                      <TextFieldChain title="Choose a Chain" placeHolder="Select chain"/>
+                      <ModalChain/>
+                    </fieldset>
+                    <fieldset className={style.qrBox}>
+                      <p className={style.title__qr}>Confirm deposit details</p>
+                      {
+                        isChain ? 
+                        <DepositDetails/>
+                        :
+                        null
+                      }
                     </fieldset>
                 </form>
             </div>

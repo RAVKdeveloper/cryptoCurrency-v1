@@ -1,13 +1,16 @@
 .root{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    margin-top: 55px;
+}
+
+.root.top{
+    margin-top: 87px;
 }
 
 .title{
     font-size: 20px;
     font-weight: 700;
     color: var(--colortext-main);
+    padding-bottom: 16px;
 }
 
 /* Select */
@@ -43,29 +46,8 @@
     transition: all .3s ease;
 }
 
-
-/* Prewiev */
-
-.selectPrewiev{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.icon{
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-}
-
-.bigName{
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--colortext-main);
-}
-
 .name{
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--noactive-color);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--colortext-main);
 }

@@ -1,0 +1,32 @@
+.root{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card{
+    padding: 8px 16px;
+    background: var(--back-btn);
+    border-radius: 8px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon{
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+}
+
+.text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--colortext-main);
+    pointer-events: none;
+}
