@@ -1,0 +1,156 @@
+.faq{
+    max-width: 460px;
+    background-color: transparent;
+}
+
+.btn__row{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn{
+    padding: 11px 24px;
+    background: #e9edf2;
+    border-radius: 8px;
+    color: var(--colortext-main);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 47.6px;
+    transition: all .4s ease;
+}
+
+.btn:hover{
+    background: var(--back-btn);
+    transition: all .4s ease;
+}
+
+.icon{
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+}
+
+
+/* List */
+
+.content{
+    padding-top: 24px;
+}
+
+.title{
+    padding-bottom: 24px;
+    color: var(--colortext-main);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.list__item{
+    padding-left: 10px;
+    margin-bottom: 20px;
+
+    color: var(--colortext-main);
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    transition: color .4s ease;
+    cursor: pointer;
+}
+
+.list__item::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 3px;
+    height: 3px;
+    background-color: #0009;
+    border-radius: 100%;
+}
+
+.list__item:hover{
+    color: var(--color-accent);
+    transition: color .4s ease;
+}
+
+.list__item.top{
+    margin-top: 40px;
+    position: relative;
+}
+
+.list__item.top::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgb(232, 232, 232);
+    top: -20px;
+    left: 0;
+}
+
+
+/* Card */
+
+.card{
+    margin-top: 16px;
+    background: var(--back-white);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 460px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.content__card{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.icon__card{
+    width: 50px;
+    height: 54px;
+    pointer-events: none;
+}
+
+.text__card{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.title__card{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+.subtitle__card{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--noactive-color);
+}
+
+.btn__card{
+    background: var(--color-accent);
+    padding: 0 12px;
+    border-radius: 12px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow{
+   width: 12px;
+   height: 12.8px;
+}

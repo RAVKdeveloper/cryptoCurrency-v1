@@ -9,6 +9,7 @@ export const fetchCrypto = createAsyncThunk(
   }
 )
 
+
 const initialState = {
     clickCrypto: false,
     itemsCrypto: [],
@@ -21,7 +22,17 @@ const initialState = {
     isQr: false,
     itemsPrewiev: [],
     status: 'loading',
+    cryptoAdress: '',
+    statusRes: 'loading',
 }
+
+export const fetchAdress = createAsyncThunk(
+  'userCryptoAdress/fetchByAdress',
+  async (id) => {
+    const { data } = await axios.get(`https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/users/${id}`)
+    return data
+  }
+)
 
 export const depositUser = createSlice({
     name: 'getdeposit',
@@ -65,7 +76,13 @@ export const depositUser = createSlice({
       },
       [fetchCrypto.rejected]: (state, action) => {
            state.status = 'error'
-      }
+      },
+      [fetchAdress.pending]: (state) => {
+            state.statusRes = 'loading'        
+      },
+      [fetchAdress.fulfilled]: (state) => {
+        state.statusRes = 'loading'        
+     },
     }
 })
 

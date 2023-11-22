@@ -1,6 +1,7 @@
 .root{
     width: 100%;
     padding-top: 100px;
+    background: var(--back-main);
 }
 
 .container{
@@ -11,4 +12,20 @@
     padding: 40px 15px 80px;
     margin: 0 auto;
     max-width: 1230px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.containerHistory{
+    background: var(--back-white);
+    padding: 80px 0;
+}
+
+.history{
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 0 15px;
 }

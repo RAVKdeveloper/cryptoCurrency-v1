@@ -3,14 +3,23 @@ import style from './style.module.css';
 import Modal from '../../../../../uicomponents/ModalSearchTextField/SearchCrypto/Modal';
 import TextFieldChain from '../../../../../uicomponents/TextField/TextFieldChain/TextField';
 import ModalChain from '../../../../../uicomponents/ModalSearchTextField/SearchChain/Modal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DepositDetails from '../../../../../uicomponents/DepositDetails/DepositDetails';
 import Prewiev from '../../../../../uicomponents/DepositPrewiev/Preiwev';
+import { useContext, useEffect } from 'react';
+import { fetchAdress } from '../../../../../redux/Slices/depositUser';
+import { AccountContext } from '../../../../../App';
 
 
 function DepositForm () {
 
+    const { userId } = useContext(AccountContext)
     const isChain = useSelector(state => state.depositUser.isPrewievChain)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+     dispatch(fetchAdress(userId))      
+    }, [])
 
     return (
 

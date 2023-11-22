@@ -4,6 +4,7 @@ import iconList from './../../img/DepositPage/DepositForm/DepositDetails/iconLis
 import { GoCopy } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
 import { setQr } from '../../redux/Slices/depositUser';
+import { useEffect, useRef, useState } from 'react';
 
 function DepositDetails () {
 
@@ -11,6 +12,16 @@ function DepositDetails () {
     const isQr = useSelector(state => state.depositUser.isQr)
     const dispatch = useDispatch();
     let [ obj ] = nameCrypto;
+    const [ isCopy, setIsCopy ] = useState(false)
+    const copyRef = useRef()
+
+
+    useEffect(() => {
+      if(isCopy === true) {
+        const text = copyRef.current.innerHTML
+        navigator.clipboard.writeText(text)   
+      }
+    }, [isCopy])
 
     return(
 
@@ -21,9 +32,9 @@ function DepositDetails () {
              <div className={style.content}>
               <p className={style.title}>{obj.cryptoName} Adress</p>
               <div className={style.adress__body}>
-                <span className={style.adress}>TLWYdRYbhH39jFjJZhHgbq9N3t68EXPQNG</span>
+                <span ref={copyRef} className={style.adress}>TLWYdRYbhH39jFjJZhHgbq9N3t68EXPQNG</span>
               </div>
-              <div className={style.copyBtn}>
+              <div onClick={() => setIsCopy(true)} className={style.copyBtn}>
                <GoCopy className={style.icon}/>
                <span className={style.text}>Copy</span>
               </div>

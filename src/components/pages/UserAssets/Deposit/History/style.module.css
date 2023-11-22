@@ -1,0 +1,110 @@
+.title{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--colortext-main);
+    padding-bottom: 24px;
+}
+
+.list__titles{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    position: relative;
+
+    background: var(--back-btn);
+    padding: 16px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+.list__titles::after{
+    content: '';
+    position:  absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--noactive-color);
+    opacity: 0.1;
+}
+
+.coinChain{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+}
+
+.coinChain::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 34%;
+    opacity: 0.2;
+    background: var(--noactive-color);
+}
+
+.addres{
+    margin-left: 180px;
+    display: flex;
+    align-items: center;
+    gap: 69px;
+    position: relative;
+}
+
+.addres::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 42%;
+    opacity: 0.2;
+    background: var(--noactive-color);
+}
+
+.status{
+    margin-left: 197px;
+    display: flex;
+    align-items: center;
+    gap: 92px;
+    position: relative;
+}
+
+.status::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 52%;
+    opacity: 0.2;
+    background: var(--noactive-color);
+}
+
+.action{
+    margin-left: 208px;
+    position: relative;
+}
+
+.action::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: -26px;
+    opacity: 0.2;
+    background: var(--noactive-color);
+}
+
+.cardWrraper{
+    display: flex;
+    flex-direction: column;
+}
