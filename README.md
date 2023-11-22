@@ -1,3 +1,9 @@
+#Stack
+React
+Redux Toolkit
+Axios
+CSS Module
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
