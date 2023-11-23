@@ -1,4 +1,89 @@
 .root{
     margin-top: 16px;
-    max-width: 632px;
+    max-width: 702px;    
+}
+
+.swiper{
+    padding: 0 35px;
+    position: relative;
+    :global(.swiper-button-prev) {
+        background: var(--color-accent);
+        transform: translate(-2px, -30px);
+        width: 24px !important;
+        height: 24px !important;
+    }
+   
+    :global(.swiper-button-prev::before) {
+        content: '<';
+        color: var(--colortext-main);
+    }
+
+    :global(.swiper-button-next) {
+        background: var(--color-accent);
+        transform: translate(6px, -30px);
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    :global(.swiper-button-next::before) {
+        content: '>';
+        color: var(--colortext-main);
+    }
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.card{
+    width: 200px;
+    height: 112px;
+    background: var(--back-white);
+    border-radius: 16px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    box-shadow: 0 2px 16px rgba(18,18,20,.1);
+    transition: all .4s ease;
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.cardText{
+    width: 200px;
+    height: 112px;
+    background: var(--back-white);
+    border-radius: 16px;
+    transition: all .4s ease;
+    cursor: pointer;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    background-image: url('../../../../../../../img/OneClickBuy/SLider/SliderSmall/icon8.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.cardText:hover{
+    box-shadow: 0 2px 16px rgba(18,18,20,.1);
+    transition: all .4s ease;
+}
+
+.text{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--colortext-main);
+    max-width: 88px;
+    line-height: 18px;
 }

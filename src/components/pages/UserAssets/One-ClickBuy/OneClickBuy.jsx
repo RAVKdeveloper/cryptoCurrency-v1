@@ -1,6 +1,7 @@
 import Navigate from '../../../../uicomponents/OneClickComponents/Navigate/Navigate';
 import Footer from '../../../footer/Footer';
 import Header from '../../../header/Header';
+import FormOneClickBuy from './SliderForm/Form/Form';
 import Slider from './SliderForm/SLider/Slider';
 import style from './style.module.css';
 
@@ -20,6 +21,7 @@ function OneClickBuy () {
         <div className={style.sliderForm}>
            <div className={style.conteinerForm}>
                <Slider/>
+               <FormOneClickBuy/>
            </div>
         </div>
         <Footer/>
