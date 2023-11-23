@@ -50,9 +50,9 @@ function MyAssets () {
                         <p className={style.subtitle__column}>New to Crypto? Purchase within seconds!</p>
                     </article>
                 </div>
-                <div className={style.right__row}>
+                <NavLink to={"/user/assets/oneClickBuy"} className={style.right__row}>
                     Buy
-                </div>
+                </NavLink>
             </div>
             <div className={style.card}>
                 <div className={style.left__row}>

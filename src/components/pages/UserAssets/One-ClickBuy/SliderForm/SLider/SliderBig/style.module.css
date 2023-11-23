@@ -1,0 +1,40 @@
+.swiper{
+    max-width: 632px;
+    height: 420px;
+    position: relative;
+    background-image: url('../../../../../../../img/OneClickBuy/SLider/SliderBig/swiperBAck.png');
+    background-repeat: no-repeat;
+    background-size: 40px 160px;
+}
+
+.swiper::before{
+    content: '';
+    position: absolute;
+    background-image: url('../../../../../../../img/OneClickBuy/SLider/SliderBig/swiperBAck.png');
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 150px;
+    top: 90px;
+    left: 160px;
+    z-index: 0;
+}
+
+.swiper::after{
+    content: '';
+    position: absolute;
+    background-image: url('../../../../../../../img/OneClickBuy/SLider/SliderBig/swiperBAck.png');
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 170px;
+    top: 45px;
+    left: 480px;
+    z-index: 0;
+}
+
+.img{
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}

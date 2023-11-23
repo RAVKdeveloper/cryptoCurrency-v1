@@ -14,6 +14,7 @@ import Registration from './components/pages/Auth/Registration/Registration';
 import Login from './components/pages/Auth/Login/Login';
 import Test from './components/testapi/Test';
 import Deposit from './components/pages/UserAssets/Deposit/Deposit';
+import OneClickBuy from './components/pages/UserAssets/One-ClickBuy/OneClickBuy';
 
 export const UserContext = createContext(true);
 export const AccountContext = createContext('');
@@ -74,6 +75,7 @@ function App() {
           <>
           <Route path='/dashbord' element={<Dashbord/>}/>
           <Route path='/user/assets/deposit' element={<Deposit/>}/>
+          <Route path='/user/assets/oneClickBuy' element={<OneClickBuy/>}/>
           </>
         }
         <Route path='*' element={<Error/>}/>
