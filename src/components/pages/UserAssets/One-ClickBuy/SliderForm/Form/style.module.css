@@ -1,5 +1,10 @@
 .root{
     max-width: 520px;
     border-radius: 16px;
-    overflow: hidden;
+    padding-bottom: 32px;
+    background: var(--back-white);
+}
+
+.form{
+    padding: 40px 32px 0;
 }

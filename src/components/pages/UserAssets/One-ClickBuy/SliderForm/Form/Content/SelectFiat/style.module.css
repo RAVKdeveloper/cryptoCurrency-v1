@@ -1,0 +1,79 @@
+.root{
+    padding: 16px;
+    background: var(--back-btn);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    position: relative;
+}
+
+.name{
+    font-size: 14px;
+    color: var(--colortext-main);
+}
+
+.input{
+    background: transparent;
+    height: 28px;
+    width: 257px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--colortext-main);
+    padding-right: 22px;
+}
+
+.input::placeholder{
+    color: #a8aaac;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.close{
+    position: absolute;
+    top: 27px;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--noactive-color);
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.select{
+    height: 64px;
+    background: var(--back-white);
+    padding: 0 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nameFiat{
+    color: var(--colortext-main);
+    font-size: 20px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.arrow{
+    width: 16px;
+    height: 16px;
+    transition: all .3s ease;
+    pointer-events: none;
+}
+
+.arrow.active{
+    transform: rotate(-180deg);
+    transition: all .3s ease;
+}

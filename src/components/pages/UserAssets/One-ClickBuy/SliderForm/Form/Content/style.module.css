@@ -1,0 +1,20 @@
+.btn{
+    margin-top: 32px;
+    width: 100%;
+    background: var(--color-accent);
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colortext-main);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.selectBox{
+    position: relative;
+}

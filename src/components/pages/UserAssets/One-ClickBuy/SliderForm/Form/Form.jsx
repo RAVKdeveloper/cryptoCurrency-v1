@@ -1,3 +1,4 @@
+import ContentForm from './Content/Content';
 import Tabs from './Tabs/Tabs';
 import style from './style.module.css';
 
@@ -8,9 +9,9 @@ function FormOneClickBuy () {
 
         <section className={style.root}>
               <Tabs/>
-            <div className={style.form}>
-
-            </div>
+              <section className={style.form}>
+              <ContentForm/>
+              </section>
         </section>
     )
 }

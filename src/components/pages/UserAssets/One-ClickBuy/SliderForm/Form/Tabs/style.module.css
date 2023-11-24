@@ -6,6 +6,8 @@
     align-items: center;
     cursor: pointer;
     user-select: none;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
 }
 
 .buy{
@@ -17,6 +19,7 @@
     font-size: 32px;
     color: #adb1b8;
     font-weight: 700;
+    border-top-left-radius: 16px;
 }
 
 .buy.active{
@@ -40,4 +43,5 @@
      font-size: 32px;
      color: #adb1b8;
      font-weight: 700;
+    border-top-right-radius: 16px;
 }
