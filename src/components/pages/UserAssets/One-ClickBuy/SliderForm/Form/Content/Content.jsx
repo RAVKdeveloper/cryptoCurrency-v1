@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import Select from './SelectFiat/Select';
 import style from './style.module.css';
 import ModalFiat from './ModalFiat/Modal';
+import SelectCrypto from './SelectCrypto/Select';
 
 
 function ContentForm () {
@@ -18,6 +19,10 @@ function ContentForm () {
             <div className={style.selectBox}>
             <Select/>
             <ModalFiat/>
+            </div>
+            <div className={`${style.selectBox} ${style.two}`}>
+            <SelectCrypto/>
+            
             </div>
            <div className={style.btn}>Buy With UAH</div>
            </>

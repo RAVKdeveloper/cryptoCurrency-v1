@@ -18,3 +18,7 @@
 .selectBox{
     position: relative;
 }
+
+.selectBox.two{
+    margin-top: 20px;
+}

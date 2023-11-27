@@ -19,6 +19,11 @@ const initialState = {
     fiatList: [],
     openFiat: false,
     fiatPrewiew: [ { article: 'UAH' } ],
+    openCrypto: false,
+    cryptoPrewiew: [ { article: 'USDT' } ],
+    convertCrypto: '',
+    convertFiat: '',
+    error: '',
   }
 
 
@@ -35,6 +40,21 @@ export const oneClickBuy = createSlice({
       setFiatPrewiev: (state, action) => {
          state.fiatPrewiew = action.payload
       },
+      setClickCrypto: (state, action) => {
+        state.openCrypto = action.payload
+     },
+     setCryptoPrewiev: (state, action) => {
+        state.cryptoPrewiewPrewiew = action.payload
+     },
+     setConvertCrypto: (state, action) => {
+        state.convertCrypto = action.payload * 39;
+     },
+     setConvertFiat: (state, action) => {
+        state.convertFiat = Number(action.payload)/39;
+     },
+     setError: (state, action) => {
+        state.error = action.payload
+     },
     },
     extraReducers: {
       [fetchFiatList.pending]: (state) => {
@@ -51,6 +71,15 @@ export const oneClickBuy = createSlice({
 })
 
 
-export const { setAction, setClickFiat, setFiatPrewiev } = oneClickBuy.actions
+export const { 
+   setAction,
+   setClickFiat,
+   setFiatPrewiev,
+   setClickCrypto, 
+   setCryptoPrewiev, 
+   setConvertCrypto, 
+   setConvertFiat, 
+   setError,
+} = oneClickBuy.actions
 
 export default oneClickBuy.reducer

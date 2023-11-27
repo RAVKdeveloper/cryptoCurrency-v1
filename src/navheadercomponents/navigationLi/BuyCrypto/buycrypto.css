@@ -60,3 +60,8 @@
     color: var(--color-accent);
     transition: all .4s ease;
 }
+
+.link__buycrypto{
+    width: 260px;
+    display: block;
+}

@@ -4,7 +4,7 @@
     top: 84px;
     right: 0;
     width: 320px;
-    height: 325px;
+    /* height: 325px; */
     background: var(--back-white);
     border-radius: 8px;
     border: 1px solid var(--back-btn);
@@ -12,13 +12,16 @@
     box-shadow: var(--back-btn);
     pointer-events: none;
     opacity: 0;
-    transition: all .3s ease;
+    transition: all .5s ease;
+    height: 100px;
+    z-index: 100;
 }
 
 .root.modal{
     pointer-events: all;
     opacity: 1;
-    transition: all .3s ease;
+    transition: all .5s ease;
+    height: 325px;
 }
 
 /* Search */
@@ -56,15 +59,9 @@
 
 /* Content */
 
-.content.active{
-     overflow-y: scroll;
-}
-
-.content{
-    display: flex;
-    flex-direction: column;
-    height:100%;
-    padding-bottom: 70px;
+.slider{
+    height: 250px;
+    padding-bottom: 8px;
 }
 
 .card{
@@ -105,6 +102,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 100px;
     font-size: 25px;
     font-weight: 600;
     color: var(--noactive-color);

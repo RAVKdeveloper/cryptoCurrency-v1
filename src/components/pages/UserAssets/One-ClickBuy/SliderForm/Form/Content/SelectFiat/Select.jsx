@@ -4,7 +4,7 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { createError, removeError } from './../../../../../../../../Helpers/Validate/Validate';
 import { useDispatch, useSelector } from 'react-redux';
-import { setClickFiat } from '../../../../../../../../redux/Slices/oneClickBuy';
+import { setClickFiat, setConvertCrypto, setError, setConvertFiat } from '../../../../../../../../redux/Slices/oneClickBuy';
 
 
 function Select () {
@@ -12,11 +12,13 @@ function Select () {
     const [ close, setClose ] = useState('')
     const open = useSelector(state => state.oneClickBuy.openFiat)
     const prewiev = useSelector(state => state.oneClickBuy.fiatPrewiew)
+    const valConvert = useSelector(state => state.oneClickBuy.convertCrypto)
     const dispatch = useDispatch()
     const inputRef = useRef()
     const selectRef = useRef()
     const [ obj ] = prewiev
-    
+     
+
     const addLocalValue = (e) => {  
         if(e !== '') {
             removeError(inputRef)
@@ -24,17 +26,22 @@ function Select () {
                 console.log('eeeeeeeeee')
                 let num = Number(e) 
                 let val = e.replace(/[a-z]/, '')
-                        
-                setClose(val)
 
-                if(num < 2400 || num > 25000) {
+                if(num < 3200 || num > 24000) {
                    removeError(inputRef)
-                  createError(inputRef, 'Min. 2,400 UAH - Max. 24,999 UAH')
+                  createError(inputRef, `Min. 2,400 ${obj.article} - Max. 24,999 ${obj.article}`)
+                  dispatch(setError('error'))
             }
+
+            dispatch(setError(''))
+            dispatch(setConvertFiat(num))
+            setClose(num)
+            
              }      
         } else{
             setClose('')
             removeError(inputRef)
+            dispatch(setError('error'))
         }
     }
 
@@ -61,15 +68,22 @@ function Select () {
         }
     }, [open])
 
+    const resetConvertValue = () => {
+        dispatch(setConvertCrypto(''))
+        setClose('')
+    }
+
+    const getToValue = valConvert === '' || valConvert === 0 ? close : valConvert;
+
     return(
 
         <div className={style.root}>
              <div className={style.inputBox}>
                 <p className={style.name}>Spend</p>
-                <input ref={inputRef} value={close} onChange={(e) => addLocalValue(e.target.value)} type="text" className={style.input} placeholder='100 - 1,800,000'/> 
+                <input ref={inputRef} value={getToValue} onChange={(e) => addLocalValue(e.target.value)} type="text" className={style.input} placeholder='100 - 1,800,000'/> 
                 {
                     close !== '' ?
-                    <IoMdCloseCircle onClick={() => setClose('')} className={style.close}/>
+                    <IoMdCloseCircle onClick={() => resetConvertValue()} className={style.close}/>
                       :
                       null
                 }
