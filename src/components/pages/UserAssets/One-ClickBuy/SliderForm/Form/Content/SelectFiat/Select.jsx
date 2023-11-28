@@ -70,6 +70,7 @@ function Select () {
 
     const resetConvertValue = () => {
         dispatch(setConvertCrypto(''))
+        dispatch(setConvertFiat(''))
         setClose('')
     }
 

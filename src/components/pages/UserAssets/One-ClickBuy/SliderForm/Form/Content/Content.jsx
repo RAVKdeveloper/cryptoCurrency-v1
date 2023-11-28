@@ -3,6 +3,7 @@ import Select from './SelectFiat/Select';
 import style from './style.module.css';
 import ModalFiat from './ModalFiat/Modal';
 import SelectCrypto from './SelectCrypto/Select';
+import ModalCrypto from './ModalCrypto/Modal';
 
 
 function ContentForm () {
@@ -22,9 +23,8 @@ function ContentForm () {
             </div>
             <div className={`${style.selectBox} ${style.two}`}>
             <SelectCrypto/>
-            
+            <ModalCrypto/>
             </div>
-           <div className={style.btn}>Buy With UAH</div>
            </>
            :
            null

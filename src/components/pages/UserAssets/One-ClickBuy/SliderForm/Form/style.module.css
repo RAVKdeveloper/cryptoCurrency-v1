@@ -8,3 +8,21 @@
 .form{
     padding: 40px 32px 0;
 }
+
+.btn{
+    margin-top: 32px;
+    width: 456px;
+    margin: 0 auto;
+    background: var(--color-accent);
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colortext-main);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}

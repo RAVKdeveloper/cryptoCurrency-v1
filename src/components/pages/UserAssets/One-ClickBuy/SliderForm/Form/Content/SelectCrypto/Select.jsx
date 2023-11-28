@@ -17,7 +17,6 @@ function SelectCrypto () {
     const dispatch = useDispatch()
     const inputRef = useRef()
     const selectRef = useRef()
-    const [ obj ] = prewiev
 
     
     const addLocalValue = (e) => { 
@@ -74,7 +73,7 @@ function SelectCrypto () {
         setClose('')
     }
 
-    const getToValue = valConvert === '' || valConvert === 0 ? close : valConvert;
+    const getToValue = valConvert === '' || valConvert === '0.00' ? close : valConvert;
 
    return (
        
@@ -90,7 +89,7 @@ function SelectCrypto () {
        }
     </div>
     <div ref={selectRef} onClick={() => addModal()} className={style.select}>
-            <p className={style.nameFiat}>{obj.article}</p>
+            <p className={style.nameFiat}>{prewiev}</p>
             <IoIosArrowDown className={ open ? `${style.arrow} ${style.active}` : style.arrow} />
     </div>
 </div>
