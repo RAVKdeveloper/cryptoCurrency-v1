@@ -27,7 +27,16 @@ function ContentForm () {
             </div>
            </>
            :
-           null
+           <>
+           <div className={style.selectBox}>
+           <SelectCrypto/>
+           <ModalCrypto/>
+           </div>
+           <div className={`${style.selectBox} ${style.two}`}>
+           <Select/>
+           <ModalFiat/>
+           </div>
+          </>
          }
         </form>
     )

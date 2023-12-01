@@ -1,0 +1,48 @@
+.root{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(100, 99, 99, 0.6);
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.root.active{
+    pointer-events: all;
+    opacity: 1;
+    transition: all .4s ease;
+}
+
+.popup{
+    width: 480px;
+    background: var(--back-white);
+    padding: 24px 32px;
+    box-shadow: 0 2px 32px rgba(18,18,20,.1);
+    border-radius: 16px;
+    color: var(--colortext-main);
+    position: relative;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0.5;
+    cursor: pointer;
+}

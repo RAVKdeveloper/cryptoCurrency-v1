@@ -10,8 +10,6 @@ function Payment () {
     const { fiatPrewiew, cryptoPrewiew, action } = useSelector(state => state.oneClickBuy)
     const [ obj ] = fiatPrewiew
 
-    console.log(typeof action)
-
     return (
             
             <div className={style.root}>

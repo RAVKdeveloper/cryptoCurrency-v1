@@ -4,7 +4,7 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { createError, removeError } from './../../../../../../../../Helpers/Validate/Validate';
 import { useDispatch, useSelector } from 'react-redux';
-import { setClickCrypto, setConvertCrypto, setError, setConvertFiat } from '../../../../../../../../redux/Slices/oneClickBuy';
+import { setClickCrypto, setConvertCrypto, setValueCrypto, setConvertFiat, setValueFiat } from '../../../../../../../../redux/Slices/oneClickBuy';
 
 
 
@@ -14,33 +14,45 @@ function SelectCrypto () {
     const open = useSelector(state => state.oneClickBuy.openCrypto)
     const prewiev = useSelector(state => state.oneClickBuy.cryptoPrewiew)
     const valConvert = useSelector(state => state.oneClickBuy.convertFiat)
+    const valueCrypto = useSelector(state => state.oneClickBuy.valueCrypto)
+    const valueFiat = useSelector(state => state.oneClickBuy.valueFiat)
     const dispatch = useDispatch()
     const inputRef = useRef()
     const selectRef = useRef()
 
+
+       useEffect(() => {
+           dispatch(setValueCrypto(inputRef.current.value))
+       }, [valueCrypto, valueFiat])
+
+
     
     const addLocalValue = (e) => { 
         let val = e.replace(/[a-z]/, '') 
-        if(e !== '') {
+        if(val !== '' || valConvert !== '') {
             removeError(inputRef)
             if(/[0-9]/g.test(e)) {
                 console.log('eeeeeeeeee')
                 let num = Number(e) 
+                let numConv = Number(val)
 
-                if(num < 82 || num > 600) {
+                const proverka = numConv < 3200 || numConv > 24000
+
+                if(num < 82 || num > 600 || proverka) {
                   removeError(inputRef)
                   createError(inputRef, 'Min. 82 USDT - Max. 600 USDT')
-                  dispatch(setError('error'))
             } 
+
                 dispatch(setConvertCrypto(num))
+                dispatch(setValueCrypto(inputRef.current.value))
                 setClose(num)
-                dispatch(setError(''))
              }      
         } else{
             setClose('')
             removeError(inputRef)
             dispatch(setConvertCrypto(''))
-            dispatch(setError('error'))
+            dispatch(setValueFiat(''))
+            dispatch(setValueCrypto(''))
         }
     }
 
@@ -71,6 +83,8 @@ function SelectCrypto () {
         dispatch(setConvertCrypto(''))
         dispatch(setConvertFiat(''))
         setClose('')
+        dispatch(setValueFiat(''))
+        dispatch(setValueCrypto(''))
     }
 
     const getToValue = valConvert === '' || valConvert === '0.00' ? close : valConvert;

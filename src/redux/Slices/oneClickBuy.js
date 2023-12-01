@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
 
-const $apiFiat = 'https://656071c683aba11d99d0d2b9.mockapi.io/ravk/api/fiatandcrypto?sortBy=article&order=asc'
+const $apiFiat = 'https://656071c683aba11d99d0d2b9.mockapi.io/ravk/api/fiatList?sortBy=article&order=asc'
 const $apiCrypto = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/cryptolist?sortBy=cryptoName&order=asc'
+const $apipaymentall = 'https://656071c683aba11d99d0d2b9.mockapi.io/ravk/api/paymentMethod'
 
 export const fetchFiatList = createAsyncThunk(
     'fiatList/fetchFiatList',
@@ -22,6 +23,21 @@ export const fetchCryptoList = createAsyncThunk(
    }
  )
 
+ export const fetchPaymentListAll = createAsyncThunk(
+   'paymentList/fetchPaymentList',
+   async (fiat) => {
+     const { data } = await axios.get(`${$apipaymentall}?fiat=${fiat}`)
+     return data
+   }
+ )
+ export const fetchPaymentPrewiev = createAsyncThunk(
+   'paymentPrewiev/fetchPaymentPrewiev',
+   async (fiat) => {
+     const { data } = await axios.get(`${$apipaymentall}?fiat=${fiat}&sortBy=rating&order=desc&page=1&limit=2`)
+     return data
+   }
+ )
+
 
 const initialState = {
     action: 'buy',
@@ -33,11 +49,16 @@ const initialState = {
     cryptoPrewiew: 'USDT',
     convertCrypto: '',
     convertFiat: '',
-    error: '',
     cryptoList: [],
     statusCrypto: 'loading',
     openPayment: false,
-    paymentName: 'Tinkoff',
+    paymentName: '',
+    paymentAll: [],
+    statusPaymentAll: 'loading',
+    paymentPrewiev: [],
+    statusPaymentPrewiev: 'loading',
+    valueFiat: '',
+    valueCrypto: '',
   }
 
 
@@ -66,12 +87,18 @@ export const oneClickBuy = createSlice({
      setConvertFiat: (state, action) => {
         state.convertFiat = Number(action.payload/39).toFixed(2);
      },
-     setError: (state, action) => {
-        state.error = action.payload
+     setValueFiat: (state, action) => {
+        state.valueFiat = action.payload
+     },
+     setValueCrypto: (state, action) => {
+      state.valueCrypto = action.payload
      },
      setOpenPayment: (state, action) => {
       state.openPayment = action.payload
-     }
+     },
+     setPayment: (state, action) => {
+      state.paymentName = action.payload
+     },
     },
     extraReducers: {
       [fetchFiatList.pending]: (state) => {
@@ -94,6 +121,26 @@ export const oneClickBuy = createSlice({
      [fetchCryptoList.rejected]: (state) => {
       state.statusCrypto = 'error'
      },
+     [fetchPaymentListAll.pending]: (state) => {
+      state.statusPaymentAll = 'loading'
+     },
+     [fetchPaymentListAll.fulfilled]: (state, action) => {
+      state.statusPaymentAll = 'succes'
+      state.paymentAll = action.payload
+     },
+     [fetchPaymentListAll.rejected]: (state) => {
+      state.statusPaymentAll = 'error'
+     },
+     [fetchPaymentPrewiev.pending]: (state) => {
+      state.statusPaymentPrewiev = 'loading'
+     },
+     [fetchPaymentPrewiev.fulfilled]: (state, action) => {
+      state.statusPaymentPrewiev = 'succes'
+      state.paymentPrewiev = action.payload
+     },
+     [fetchPaymentPrewiev.rejected]: (state) => {
+      state.statusPaymentPrewiev = 'error'
+     },
     },
 })
 
@@ -106,8 +153,10 @@ export const {
    setCryptoPrewiev, 
    setConvertCrypto, 
    setConvertFiat, 
-   setError,
+   setValueCrypto,
+   setValueFiat,
    setOpenPayment,
+   setPayment,
 } = oneClickBuy.actions
 
 export default oneClickBuy.reducer

@@ -26,3 +26,39 @@
     cursor: pointer;
     user-select: none;
 }
+
+.btn.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+.autoinvest{
+    margin-top: 24px;
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--colortext-main);
+    font-size: 16px;
+    font-weight: 600;
+    user-select: none;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+}
+
+.arrow{
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    transition: opacity .3s ease;
+}
+
+.autoinvest:hover .arrow{
+    opacity: 1;
+    transition: opacity .3s ease;
+}

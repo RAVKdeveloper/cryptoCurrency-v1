@@ -17,8 +17,6 @@ function ModalFiat () {
     const dispatch = useDispatch()
     const searchRef = useRef();
 
-    console.log(search)
-
     const UpdateSearchValue = useCallback(
         debounce((str) => {
           setSearch(str)

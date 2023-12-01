@@ -40,3 +40,29 @@
     transform: rotate(-180deg);
     transition: all .3s ease;
 }
+
+/* Loading */
+
+.loading{
+    height: 28px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader{
+    width: 35px;
+    height: 35px;
+    border: 7px solid rgba(247, 166, 0, 0.2);
+    border-top: 7px solid var(--color-accent);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

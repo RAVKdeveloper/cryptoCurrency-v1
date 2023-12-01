@@ -7,24 +7,30 @@ import { setOpenPayment } from '../../../../../../../../redux/Slices/oneClickBuy
 
 function SelectPayment () {
 
-    const { paymentName, openPayment } = useSelector(state => state.oneClickBuy)
+    const { paymentName, openPayment } = useSelector(state => state.oneClickBuy);
     const dispatch = useDispatch()
 
     const openModal = () => {
-        if(openPayment === true) {
-            return dispatch(setOpenPayment(false))
-        }
         return dispatch(setOpenPayment(true))
     }
 
     return (
 
         <section onClick={() => openModal()} className={style.root}>
-             <div className={style.content}>
-                <img src={p2pImg} alt="icon" className={style.icon} />
-                <p className={style.name}>{paymentName}</p>
-             </div>
-             <img src={arrowImg} alt="arrow" className={openPayment ? `${style.arrow} ${style.active}` : style.arrow} />
+            {
+                paymentName !== '' ?
+                <>
+                <div className={style.content}>
+                   <img src={p2pImg} alt="icon" className={style.icon} />
+                   <p className={style.name}>{paymentName}</p>
+                </div>
+                <img src={arrowImg} alt="arrow" className={openPayment ? `${style.arrow} ${style.active}` : style.arrow} />
+                </>
+                :
+                <div className={style.loading}>
+                    <div className={style.loader}></div>
+                </div>
+              }  
         </section>
     )
 }
