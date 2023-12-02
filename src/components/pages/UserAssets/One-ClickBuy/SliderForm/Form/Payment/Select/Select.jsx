@@ -7,18 +7,19 @@ import { setOpenPayment } from '../../../../../../../../redux/Slices/oneClickBuy
 
 function SelectPayment () {
 
-    const { paymentName, openPayment } = useSelector(state => state.oneClickBuy);
+    const { paymentName, openPayment, paymentPrewiev } = useSelector(state => state.oneClickBuy);
     const dispatch = useDispatch()
 
     const openModal = () => {
         return dispatch(setOpenPayment(true))
     }
 
+
     return (
 
         <section onClick={() => openModal()} className={style.root}>
             {
-                paymentName !== '' ?
+                paymentName !== '' || paymentPrewiev.length > 0  ?
                 <>
                 <div className={style.content}>
                    <img src={p2pImg} alt="icon" className={style.icon} />

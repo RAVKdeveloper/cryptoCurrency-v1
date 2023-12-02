@@ -1,21 +1,23 @@
 import style from './style.module.css';
 import p2pImg from './../../../../../../../../../img/OneClickBuy/Payment/p2p.png'
-import { payment } from '../../../../../../../../../db/dbPayment';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPayment, fetchPaymentListAll, fetchPaymentPrewiev } from '../../../../../../../../../redux/Slices/oneClickBuy';
+import { setPayment, fetchPaymentListAll, fetchPaymentPrewiev, setOpenPayment } from '../../../../../../../../../redux/Slices/oneClickBuy';
 import { useEffect } from 'react';
 
 
 function ContentPayment () {
 
-    const { fiatPrewiew, paymentAll, paymentPrewiev, cryptoPrewiew } = useSelector(state => state.oneClickBuy) 
+    const { fiatPrewiew, paymentAll, paymentPrewiev, cryptoPrewiew, paymentName } = useSelector(state => state.oneClickBuy) 
     const dispatch = useDispatch()
     const obj  = paymentPrewiev[0]
     const [ prewiev ] = fiatPrewiew
 
-    if(paymentPrewiev.length > 0) {
-       dispatch(setPayment(obj.bank))
-    }
+
+    useEffect(() => {
+           if(paymentPrewiev.length > 0) {
+              dispatch(setPayment(obj.bank))     
+           }
+    }, [fiatPrewiew, paymentPrewiev])
 
     useEffect(() => {
         try{
@@ -27,6 +29,12 @@ function ContentPayment () {
         }
     }, [fiatPrewiew])
 
+    const getPay = (bank) => {
+         dispatch(setPayment(bank))
+         dispatch(setOpenPayment(false))
+    }
+
+
     return (
 
         <div className={style.root}>
@@ -36,7 +44,7 @@ function ContentPayment () {
                {
                   paymentPrewiev.length > 0 ? 
                   paymentPrewiev.map(({ bank, id }) => (
-                     <article key={id} className={style.card}>
+                     <article onClick={() => getPay(bank)} key={id} className={style.card}>
                      <div className={style.cardContent}>
                         <img src={p2pImg} alt="icon" className={style.icon} />
                         <p className={style.name}>{bank}</p>
@@ -56,7 +64,7 @@ function ContentPayment () {
                {
                   paymentAll.length > 0 ? 
                   paymentAll.map(({ bank, id }) => (
-                    <article key={id} className={style.card}>
+                    <article onClick={() => getPay(bank)} key={id} className={style.card}>
                      <div className={style.cardContent}>
                         <img src={p2pImg} alt="icon" className={style.icon} />
                         <p className={style.name}>{bank}</p>

@@ -35,3 +35,35 @@
     justify-content: space-between;
     gap: 10px;
 }
+
+
+/* Road VIP */
+
+.roadVIP{
+    background: var(--back-white);
+    padding-top: 120px;
+}
+
+.roadVipContainer{
+    width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.depositLocalContainer{    
+    width: 1230px;
+    padding: 110px 0 15px;
+    margin: 0 auto;
+}
+
+.leadingContainer{
+    width: 1230px;
+    padding: 110px 0 15px;
+    margin: 0 auto;
+}
+
+.faqContainer{
+    width: 1230px;
+    padding: 110px 0 15px;
+    margin: 0 auto;
+}

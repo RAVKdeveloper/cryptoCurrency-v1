@@ -1,0 +1,113 @@
+.title{
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.cardsRow{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+
+/* Card One */
+
+.cardOne{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--back-main);
+    border-radius: 16px;
+    /* height: 186px; */
+    width: 576px;
+}
+
+.cardOneLeft{
+    padding: 24px 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardOneRight{
+     max-width: 241px;
+     max-height: 186px;
+     pointer-events: none;
+}
+
+.titlecardOne{
+    font-size: 12px;
+    color: var(--noactive-color);
+}
+
+.cardOnekeywords{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--colortext-main);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.cardOneCoins{
+    padding-top: 24px;
+    font-size: 12px;
+    color: var(--noactive-color);
+    line-height: 18px;
+}
+
+
+/* Card Two */
+
+
+.cardTwo{
+    width: 576px;
+    background: var(--back-main);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.cardTwoText{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--colortext-main);
+    line-height: 26px;
+}
+
+.columnsRow{
+    display: flex;
+    align-items: flex-start;  
+    gap: 30px;
+}
+
+.column{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.cardTwoIcon{
+    width: 60px;
+    height: 66px;
+}
+
+.contentColumn{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.titleColumn{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+.subtitleColumn{
+    font-size: 14px;
+    color: var(--noactive-color);
+}
