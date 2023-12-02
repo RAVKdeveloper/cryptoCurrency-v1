@@ -4,6 +4,8 @@ import { createError, removeError } from '../../../../../Helpers/Validate/Valida
 import { URL } from '../../../dashbord/AccountInfo/AccountInfo';
 import { AccountContext } from '../../../../../App';
 import { Navigate, Route, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 function Form ({ temaOn }) {
 
@@ -62,10 +64,10 @@ function Form ({ temaOn }) {
        }
     }
 
+
     useEffect(() => {
        if(sendFomr === true) {
         let [ email, username , pass ] = params;
-        console.log(pass.passUser)
          fetch(URL, {
             method: 'POST',
             headers: {
@@ -80,6 +82,16 @@ function Form ({ temaOn }) {
             setUserId(arr.id)
             localStorage.setItem('auth', arr.id)
             navigate("/")
+            axios.post(`https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/users/${arr.id}/usersP2PandOneClickBuy`, {
+                AllOrders: '0',
+                procentOrders: '0%',
+                verificated: 'false',
+                rating: '0',
+                buyOrders: '0',
+                sellOrders: '0',
+                firstTrade: '0',
+                tradeVolume: '0'
+            })
          })
        }
     }, [sendFomr])

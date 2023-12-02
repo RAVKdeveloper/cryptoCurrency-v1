@@ -1,5 +1,5 @@
 
-import { createContext } from 'react';
+import { createContext, useCallback } from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './components/pages/main/Main';
@@ -15,6 +15,9 @@ import Login from './components/pages/Auth/Login/Login';
 import Test from './components/testapi/Test';
 import Deposit from './components/pages/UserAssets/Deposit/Deposit';
 import OneClickBuy from './components/pages/UserAssets/One-ClickBuy/OneClickBuy';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchP2PAccount } from './redux/Slices/User/P2PAccount';
 
 export const UserContext = createContext(true);
 export const AccountContext = createContext('');
@@ -54,6 +57,7 @@ function App() {
       setLoader(false)
     }
   }, [btnRow, userId])
+
 
   return (
     <div className="App">
