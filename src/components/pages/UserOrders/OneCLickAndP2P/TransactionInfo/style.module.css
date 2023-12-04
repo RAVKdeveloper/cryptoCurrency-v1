@@ -1,0 +1,7 @@
+.root{
+    margin-top: 32px;
+    background: var(--back-white);
+    padding: 24px 32px;
+    max-width: 776px;
+    border-radius: 16px;
+}

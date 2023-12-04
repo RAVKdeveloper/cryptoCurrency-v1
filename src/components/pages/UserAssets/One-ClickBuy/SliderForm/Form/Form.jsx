@@ -6,9 +6,10 @@ import style from './style.module.css';
 import iconImg from './../../../../../../img/OneClickBuy/Form/autoinvest.svg'
 import { FaArrowRight } from "react-icons/fa6";
 import { useContext, useEffect, useState } from 'react';
-import { AccountContext } from '../../../../../../App';
+import { AccountContext, NickNameAndID } from '../../../../../../App';
 import axios from 'axios';
 import { setOrder, chekBalanceFetch } from '../../../../../../redux/Slices/orderOneClick';
+import { useNavigate } from 'react-router-dom';
 
 const $apiORderOneClick = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/users/'
 
@@ -22,27 +23,37 @@ function FormOneClickBuy () {
     const { userId } = useContext(AccountContext)
     const fiat = obj.article
     const balance = chekBalance.balance;
+    const { userNick, userBalance } = useContext(NickNameAndID)
+    const navigate = useNavigate()
+
     
     const addOrder = async () => {
         if(action === 'buy') {
+            const date = new Date()
+            console.log(date)
             const { data } = await axios.post(`${$apiORderOneClick}${userId}/oneClickBuy`, {  
                 createdAt: `${Date.now()}${userId}`,
                 crypto: cryptoPrewiew,
                 fiat: fiat,
-                takerUsername: 'hello',
-                takerCommisions: 'hello',
-                balance: '0.00',
+                takerUsername: userNick,
+                takerCommisions: '0.1%',
+                balance: userBalance,
                 status: 'loading',
                 valueCrypto: valueCrypto,
                 valueFiat: valueFiat,
                 action: action,
                 payment: paymentName,
+                type: 'oneClickBuy',
+                date: date.toLocaleString(),
+                orderStatus: 'pending',
             })
-
+            
+            navigate(`/user/one-click-buy/order/${data.id}?createdAt=${data.createdAt}`)
             return dispatch(setOrder(data))
         } else if(action === 'sell') {
             dispatch(chekBalanceFetch(userId))
             if(Number(balance) > Number(valueCrypto)) {
+                const date = new Date()
                 const { data } = await axios.post(`${$apiORderOneClick}${userId}/oneClickBuy`, {  
                     createdAt: `${Date.now()}${userId}`,
                     crypto: cryptoPrewiew,
@@ -55,7 +66,12 @@ function FormOneClickBuy () {
                     valueFiat: valueFiat,
                     action: action,
                     payment: paymentName,
+                    type: 'oneClickBuy',
+                    date: date.toLocaleString(),
+                    orderStatus: 'pending',
                 })
+
+                navigate(`/user/one-click-buy/order/${data.id}&createdAt=${data.createdAt}`)
                 return dispatch(setOrder(data))
             }
             else{

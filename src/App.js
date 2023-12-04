@@ -18,6 +18,7 @@ import OneClickBuy from './components/pages/UserAssets/One-ClickBuy/OneClickBuy'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchP2PAccount } from './redux/Slices/User/P2PAccount';
+import OrderOneCLickAndP2p from './components/pages/UserOrders/OneCLickAndP2P/Order';
 
 export const UserContext = createContext(true);
 export const AccountContext = createContext('');
@@ -29,6 +30,7 @@ function App() {
   const [userId, setUserId] = useState(localStorage.getItem('auth'));
   const [ userNick, setUserNick ] = useState('')
   const [loader, setLoader] = useState(true);
+  const [ userBalance, setUserBalance ] = useState('')
 
   useEffect(() => {
     if(userId !== '' && userId !== undefined && userId !== null) {
@@ -45,6 +47,7 @@ function App() {
         setBtnROw(false)
         setUserId(arr.id)
         setUserNick(arr.name)
+        setUserBalance(arr.balance)
        }
      })
      .catch(err => {
@@ -65,7 +68,7 @@ function App() {
       <ScrollToTop />
       <UserContext.Provider value={{ btnRow, setBtnROw }}>
         <AccountContext.Provider value={{ userId, setUserId }}>
-          <NickNameAndID.Provider value={{ userNick, setUserNick }}>
+          <NickNameAndID.Provider value={{ userNick, setUserNick, userBalance }}>
         <PremainMess/>
         <Routes>
         <Route path='/' element={<MainPage/>}/>
@@ -80,6 +83,7 @@ function App() {
           <Route path='/dashbord' element={<Dashbord/>}/>
           <Route path='/user/assets/deposit' element={<Deposit/>}/>
           <Route path='/user/assets/oneClickBuy' element={<OneClickBuy/>}/>
+          <Route path='/user/one-click-buy/order/:id' element={<OrderOneCLickAndP2p/>} />
           </>
         }
         <Route path='*' element={<Error/>}/>
