@@ -1,5 +1,6 @@
 import style from './style.module.css'
 import OrderHeader from './orderHeader/orderHeader';
+import OrderBody from './orderBody/orderBody';
 
 
 function TransactionInfo () {
@@ -8,6 +9,7 @@ function TransactionInfo () {
 
         <section className={style.root}>
             <OrderHeader/>
+            <OrderBody/>
         </section>
     )
 }

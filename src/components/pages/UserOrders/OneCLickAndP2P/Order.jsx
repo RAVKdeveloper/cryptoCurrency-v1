@@ -17,7 +17,7 @@ function OrderOneCLickAndP2p () {
     const { userId } = useContext(AccountContext)
     const dispatch = useDispatch()
     const { orderWithDb, statusGetOrder } = useSelector(state => state.orderOneClick)
-    const { action, crypto, date } = orderWithDb
+    const [ order ] = orderWithDb
 
 
     useEffect(() => {
@@ -25,6 +25,7 @@ function OrderOneCLickAndP2p () {
             const obj = {
                 user: userId, 
                 order: id,
+                type: 'OneClickBuy',
             }
             dispatch(getOrderUser(obj))
         } catch {
@@ -32,8 +33,6 @@ function OrderOneCLickAndP2p () {
         }
     }, [])
 
-
-    const getAction = action === 'buy' ? 'Buy' : 'Sell'
 
     return (  
 
@@ -51,10 +50,10 @@ function OrderOneCLickAndP2p () {
                <main className={style.main}>
                    <div className={style.mainContainer}>
                      <article className={style.titlesRow}>
-                        <h3 className={style.title}>{getAction} {crypto}</h3>
+                        <h3 className={style.title}>{order.action === 'buy' ? 'Buy' : 'Sell'} {order.crypto}</h3>
                         <div className={style.idOrderRow}>
-                            <h5 className={style.dataOrder}>{date}</h5>
-                            <h5 className={style.idOrder}>{orderWithDb.id} <GoCopy className={style.copyBtn} /></h5>
+                            <h5 className={style.dataOrder}>{order.date}</h5>
+                            <h5 className={style.idOrder}>{order.id} <GoCopy className={style.copyBtn} /></h5>
                         </div>
                      </article>
                      <TransactionInfo/>

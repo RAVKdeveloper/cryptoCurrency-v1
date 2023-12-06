@@ -7,15 +7,16 @@ import { useSelector } from 'react-redux';
 function OrderHeader () {
 
     const { orderWithDb } = useSelector(state => state.orderOneClick)
+    const [ order ] = orderWithDb
 
-    const getLcSec = localStorage.getItem(`sec${orderWithDb.id}`) ? localStorage.getItem(`sec${orderWithDb.id}`) : 60
-    const getLcMin = localStorage.getItem(`min${orderWithDb.id}`) ? localStorage.getItem(`min${orderWithDb.id}`) : 14
+    const getLcSec = localStorage.getItem(`sec${order.id}`) ? localStorage.getItem(`sec${order.id}`) : 60
+    const getLcMin = localStorage.getItem(`min${order.id}`) ? localStorage.getItem(`min${order.id}`) : 14
 
     let [ min, setMin ] = useState(getLcMin)
     let [ sec, setSec ] = useState(getLcSec)
 
-    localStorage.setItem(`sec${orderWithDb.id}`, sec)
-    localStorage.setItem(`min${orderWithDb.id}`, min)
+    localStorage.setItem(`sec${order.id}`, sec)
+    localStorage.setItem(`min${order.id}`, min)
 
 
     useEffect(() => {
@@ -62,7 +63,7 @@ function OrderHeader () {
                  </article>
             </div>
         </section>
-    )
+    )  
 }
 
 export default OrderHeader; 

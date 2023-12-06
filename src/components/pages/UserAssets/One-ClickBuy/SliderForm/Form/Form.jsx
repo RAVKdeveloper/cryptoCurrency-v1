@@ -5,13 +5,13 @@ import Tabs from './Tabs/Tabs';
 import style from './style.module.css';
 import iconImg from './../../../../../../img/OneClickBuy/Form/autoinvest.svg'
 import { FaArrowRight } from "react-icons/fa6";
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useId, useState } from 'react';
 import { AccountContext, NickNameAndID } from '../../../../../../App';
 import axios from 'axios';
 import { setOrder, chekBalanceFetch } from '../../../../../../redux/Slices/orderOneClick';
 import { useNavigate } from 'react-router-dom';
 
-const $apiORderOneClick = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/users/'
+const $apiORderOneClick = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/ordersP2PAndOneClickBuy'
 
 function FormOneClickBuy () {
 
@@ -20,7 +20,7 @@ function FormOneClickBuy () {
     const [ localVal, setLocalVal ] = useState('')
     const [ obj ] = fiatPrewiew
     const dispatch = useDispatch()
-    const { userId } = useContext(AccountContext)
+    const { userId, verName } = useContext(AccountContext)
     const fiat = obj.article
     const balance = chekBalance.balance;
     const { userNick, userBalance } = useContext(NickNameAndID)
@@ -31,12 +31,13 @@ function FormOneClickBuy () {
         if(action === 'buy') {
             const date = new Date()
             console.log(date)
-            const { data } = await axios.post(`${$apiORderOneClick}${userId}/oneClickBuy`, {  
-                createdAt: `${Date.now()}${userId}`,
+            const { data } = await axios.post(`${$apiORderOneClick}`, {  
+                createdAt: `${Date.now()}`,
                 crypto: cryptoPrewiew,
                 fiat: fiat,
                 takerUsername: userNick,
-                takerCommisions: '0.1%',
+                takerCommisions: '0%',
+                makerName: 'nicolas',
                 balance: userBalance,
                 status: 'loading',
                 valueCrypto: valueCrypto,
@@ -46,21 +47,27 @@ function FormOneClickBuy () {
                 type: 'oneClickBuy',
                 date: date.toLocaleString(),
                 orderStatus: 'pending',
+                verificationName: verName,
+                makerId: '1',
+                takerId: userId,
+                orderNo: `${Date.now()}${userId}`,
+                type: 'OneClickBuy',
             })
             
-            navigate(`/user/one-click-buy/order/${data.id}?createdAt=${data.createdAt}`)
+            navigate(`/user/one-click-buy/order/${data.orderNo}?createdAt=${data.createdAt}`)
             return dispatch(setOrder(data))
         } else if(action === 'sell') {
             dispatch(chekBalanceFetch(userId))
             if(Number(balance) > Number(valueCrypto)) {
                 const date = new Date()
-                const { data } = await axios.post(`${$apiORderOneClick}${userId}/oneClickBuy`, {  
-                    createdAt: `${Date.now()}${userId}`,
+                const { data } = await axios.post(`${$apiORderOneClick}`, {  
+                    createdAt: Date.now(),
                     crypto: cryptoPrewiew,
                     fiat: fiat,
-                    takerUsername: 'hello',
-                    takerCommisions: 'hello',
-                    balance: '0.00',
+                    takerUsername: userNick,
+                    takerCommisions: '0%',
+                    makerName: 'nicolas',
+                    balance: userBalance,
                     status: 'loading',
                     valueCrypto: valueCrypto,
                     valueFiat: valueFiat,
@@ -69,9 +76,12 @@ function FormOneClickBuy () {
                     type: 'oneClickBuy',
                     date: date.toLocaleString(),
                     orderStatus: 'pending',
+                    makerId: '1',
+                    takerId: userId,
+                    orderNo: `${Date.now()}${userId}`,
                 })
 
-                navigate(`/user/one-click-buy/order/${data.id}&createdAt=${data.createdAt}`)
+                navigate(`/user/one-click-buy/order/${data.orderNo}&createdAt=${data.createdAt}`)
                 return dispatch(setOrder(data))
             }
             else{

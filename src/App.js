@@ -31,6 +31,7 @@ function App() {
   const [ userNick, setUserNick ] = useState('')
   const [loader, setLoader] = useState(true);
   const [ userBalance, setUserBalance ] = useState('')
+  const [ verName, setVerName ] = useState('')
 
   useEffect(() => {
     if(userId !== '' && userId !== undefined && userId !== null) {
@@ -48,6 +49,7 @@ function App() {
         setUserId(arr.id)
         setUserNick(arr.name)
         setUserBalance(arr.balance)
+        setVerName(arr.verificationName)
        }
      })
      .catch(err => {
@@ -67,7 +69,7 @@ function App() {
       <Router>
       <ScrollToTop />
       <UserContext.Provider value={{ btnRow, setBtnROw }}>
-        <AccountContext.Provider value={{ userId, setUserId }}>
+        <AccountContext.Provider value={{ userId, setUserId, verName }}>
           <NickNameAndID.Provider value={{ userNick, setUserNick, userBalance }}>
         <PremainMess/>
         <Routes>

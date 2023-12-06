@@ -1,0 +1,53 @@
+.root{
+    margin-top: 8px;
+    margin-left: 36px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--back-btn);
+}
+
+.headCard{
+    padding: 12px;
+    background: var(--back-btn);
+    color: var(--colortext-main);
+    font-weight: 600;
+}
+
+.bank{
+    padding-left: 16px;
+    border-left: 2px solid var(--color-accent);
+}
+
+.bodyCard{
+    padding: 14px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row{
+    display: flex;
+}
+
+.title{
+    width: 194.13px;
+    color: var(--noactive-color);
+}
+
+.value{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    color: var(--colortext-main);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.copy{
+    color: var(--colortext-main);
+    width: 16px;
+    height: 16.8px;
+    user-select: none;
+    cursor: pointer;
+}
