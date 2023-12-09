@@ -120,3 +120,36 @@
 .column.none::after{
     display: none;
 }
+
+
+.succes{
+    width: 36px;
+    height: 36px;
+    background: var(--green-action);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tick{
+    color: var(--header-text);
+    font-size: 22px;
+}
+
+.canseled{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--noactive-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canselIcon{
+    color: var(--header-text);
+    font-size: 25px;
+}

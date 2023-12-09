@@ -37,8 +37,8 @@ function MyAssets () {
         </div>
         <div className={style.balance}>
             <p className={style.title__balance}>Total Assets</p>
-            <p className={style.value__balance}>{eyeActive ? '***' + balance.substring(100) : balance} USD</p>
-            <p className={style.value__btc}>= {eyeActive ? '***' + userBtc.substring(100) : userBtc} BTC</p>
+            <p className={style.value__balance}>{eyeActive ? '***': balance} USD</p>
+            <p className={style.value__btc}>= {eyeActive ? '***': userBtc} BTC</p>
         </div>
         <div className={style.assetsEmpty}>
             <p className={style.title__empty}>Your hassle-free gateway to buying and depositing Crypto</p>

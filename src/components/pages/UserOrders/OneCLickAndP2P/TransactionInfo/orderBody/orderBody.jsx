@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './style.module.css'
 import Message from './MessageUpPay';
 import CardPay from './CardPay/card';
-import { useContext, useEffect, useState } from 'react';
-import { chekBalanceFetch, getOrderUser, getReleased, putBalanceMinus, putOrderStatus } from '../../../../../../redux/Slices/orderOneClick';
+import { useContext, useEffect, useId, useState } from 'react';
+import { chekBalanceFetch, completeOrders, getOrderUser, getReleased, putBalanceMinus, putOrderStatus } from '../../../../../../redux/Slices/orderOneClick';
 import { AccountContext } from '../../../../../../App';
-import axios from 'axios';
+
 
 
 function OrderBody () {
@@ -17,13 +17,11 @@ function OrderBody () {
     const [ order ] = orderWithDb
     const dispatch = useDispatch()
     const { userId } = useContext(AccountContext)
-    const isBuyOrSell = orderWithDb.action === 'sell' ? `${style.columnFiat} ${style.sell}` : style.columnFiat
+    const isBuyOrSell = order.action === 'sell' ? `${style.columnFiat} ${style.sell}` : style.columnFiat
 
 
-    console.log(order.orderStatus)
-
-    const getRequestSell = async () => {
-        await dispatch(chekBalanceFetch(order.makerId))
+    const getRequestSell = async (id) => {
+        await dispatch(chekBalanceFetch(id))
         }
 
     const putBalance = async (obj) => {
@@ -35,14 +33,7 @@ function OrderBody () {
                 balance: balanceMaker,
                 val: value,
             }
-          await dispatch(putBalanceMinus(objToRedux))
-
-           const res = await axios.put(`https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/ordersP2PAndOneClickBuy/${order.id}`, {
-                orderStatus: 'confirm', 
-                status: 'complete',
-             })
-
-             return res
+             await dispatch(putBalanceMinus(objToRedux))
         }
     }
 
@@ -57,6 +48,7 @@ function OrderBody () {
                  statusOrder: 'loading'
                }
                dispatch(putOrderStatus(obj))
+               setGorequest(false)
             } catch {
                alert('Произошла ошибка...')
             }
@@ -88,22 +80,45 @@ function OrderBody () {
                 balanceMaker: chekBalance.balance
             }   
 
-            getRequestSell()
+            const objComplete = {
+                type: order.type,
+                order: order.orderNo,
+                status: 'complete',
+                statusOrder: 'confirm',
+                id: order.id
+            }
+
+        if(order.action === 'buy') {
+            getRequestSell(order.makerId)
             putBalance(obj)
             dispatch(getReleased(obj))
 
-            const objGet = {
-                user: order.takerId,
-                order: order.orderNo,
-                type: 'OneClickBuy'
-             }
+            // const objGet = {
+            //     user: order.takerId,
+            //     order: order.orderNo,
+            //     type: 'OneClickBuy'
+            //  }
 
-             setTimeout(() => {
-                 dispatch(getOrderUser(objGet))
-             }, 3000)
-             
+
+            dispatch(putOrderStatus(objComplete))
+
+        }
+        else{
+
+            const objSellTaker = {
+                balanceMaker: chekBalance.balance,
+                makerId: order.takerId,
+                value: order.valueCrypto,
+            }
+        
+            getRequestSell(order.takerId)
+            putBalance(objSellTaker)
+            dispatch(getReleased(objSellTaker))
+            dispatch(putOrderStatus(objComplete))
+        }
         }
     }, [ goReleased ])
+
 
     return (
 
@@ -133,28 +148,63 @@ function OrderBody () {
                 </div>
                 <Message/>
                 <CardPay/>
-                <div className={style.btnRow}>                 
+                <div className={style.btnRow}>    
+                         
                 {
-                    order.orderStatus === 'pending' && userId === order.takerId ?
+                    order.action === 'buy' ?
+                    order.orderStatus === 'pending' && userId === order.takerId && order.action === 'buy' ?
                     <>
                     <div onClick={() => setGorequest(true)} className={style.btnActive}>Confirm Payment</div>
                     <div onClick={() => setGoCanseled(true)} className={style.bntCansel}>Cansel</div>
                     </>
                     :
-                    order.orderStatus === 'To be released' && userId === order.takerId ?
+                    order.orderStatus === 'To be released' && userId === order.takerId && order.action === 'buy' ?
                     <div onClick={() => setGoCanseled(true)} className={style.bntCansel}>Cansel</div>
                     :
                     <div className={style.bntCansel}>View My Assets</div>
+                    :
+                    null
                 }
                 {
-                    order.makerId === userId &&
+                    order.makerId === userId && order.action === 'buy' &&
                     order.orderStatus === 'To be released' ? 
                     <div onClick={() => setGoReleased(true)} className={style.releseCoinBtn}>Relese Coins</div>
                     :
                     null
                 }
+                {
+                    order.action === 'sell' && userId === order.takerId ? 
+                    order.orderStatus === 'pending' ?
+                    null
+                    :
+                     order.orderStatus === 'To be released' && userId === order.takerId ?
+                     <div onClick={() => setGoReleased(true)} className={style.releseCoinBtn}>Relese Coins</div>
+                     :
+                     <div className={style.bntCansel}>View My Assets 1</div>
+                     :
+                     null
+                }
+
+                {/* Maker */} 
+
+                {
+                    order.action === 'sell' && userId === order.makerId ? 
+                    order.orderStatus === 'pending' ?
+                    <>
+                    <div onClick={() => setGorequest(true)} className={style.btnActive}>Confirm Payment</div>
+                    <div onClick={() => setGoCanseled(true)} className={style.bntCansel}>Cansel</div>
+                    </>
+                    :
+                    order.orderStatus === 'To be released' ? 
+                    <div onClick={() => setGoCanseled(true)} className={style.bntCansel}>Cansel</div>
+                    :
+                    <div className={style.bntCansel}>View My Assets</div>
+                    :
+                    null
+                }
                 </div>
             </div>
+           
         </section>
     )
 }

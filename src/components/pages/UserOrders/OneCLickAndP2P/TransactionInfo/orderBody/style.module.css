@@ -69,6 +69,10 @@
     line-height: 22px;
 }
 
+.columnFiat.sell{
+    color: red;
+}
+
 .colunmValue{
     margin-top: 4px;
     font-size: 14px;

@@ -60,6 +60,18 @@ export const putBalanceMinus = createAsyncThunk(
    }
 )
 
+export const completeOrders = createAsyncThunk(
+   'orderComplete/CompleteOrder',
+   async (id) => {
+      const { data } = await axios.put(`${$apiOneClickOrder}?orderNo=${id}&type=OneClickBuy`, {
+         orderStatus: 'complete',
+         status: 'complete'
+      })
+
+      return data
+   }
+)
+
 
 const initialState = {
    order: [],
@@ -121,7 +133,10 @@ export const orderOneClick = createSlice({
      },
      [getReleased.rejected]: (state) => {
       state.statusReleased = 'error'
-     } 
+     },
+     [completeOrders.fulfilled]: (state, action) => {
+      state.orderWithDb = action.payload
+     }, 
     },
 })
 
