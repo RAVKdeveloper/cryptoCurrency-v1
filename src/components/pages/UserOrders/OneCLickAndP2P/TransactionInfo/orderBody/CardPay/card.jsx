@@ -3,6 +3,7 @@ import style from './style.module.css'
 import { GoCopy } from "react-icons/go";
 import { useRef } from 'react';
 import { Copy } from '../../../../../../../utils/Copy';
+import canselPay from '../../../../../../../img/orderP2POneClick/canselePay.png'
 
 function CardPay () {
 
@@ -14,6 +15,14 @@ function CardPay () {
 
     return (
 
+        order.orderStatus === 'Canseled' ?
+        <section className={style.canseledRoot}>
+            <img src={canselPay} alt="canseledIcon" className={style.iconCanseled} />
+            <p className={style.canselText}>
+            Unable to retrieve the payment method! The order has already been canceled.
+            </p>
+        </section>
+        :
         <section className={style.root}>
             <div className={style.headCard}>
                 <span className={style.bank}>{order.payment}</span>

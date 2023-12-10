@@ -15,3 +15,8 @@ export const payment = [
         value: ['Revolut', 'J.P.Morgan', 'Pay-Pal', 'Bank of Georgia', 'Advcash']
     },
 ]
+
+
+export const shortCutsOrderRatingGood = ['Good Rates', 'Fast Response', 'Polite', 'Patient', 'Reliable']
+
+export const shortCutsOrderRatingBad = ['Slow', 'Rude', 'Impatient', 'Asks For Additional Fees']

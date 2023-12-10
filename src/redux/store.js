@@ -5,6 +5,7 @@ import depositUser from './Slices/depositUser'
 import oneClickBuy from './Slices/oneClickBuy'
 import orderOneClick from './Slices/orderOneClick'
 import P2PAccount from './Slices/User/P2PAccount'
+import orderRatings from './Slices/User/orderRatings'
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     oneClickBuy,
     orderOneClick,
     P2PAccount,
+    orderRatings,
   },
 })
     

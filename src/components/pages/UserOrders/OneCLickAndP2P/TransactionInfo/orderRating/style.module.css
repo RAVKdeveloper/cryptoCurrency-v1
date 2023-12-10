@@ -1,0 +1,87 @@
+.root{
+    border-radius: 16px;
+    margin-top: 24px;
+    background: var(--back-white);
+}
+
+.titleRow{
+    padding: 24px 32px;
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+.title{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+.content{
+    padding: 24px 32px;
+}
+
+.subTitle{
+    padding-bottom: 16px;
+    color: var(--colortext-main);
+}
+
+.btnRatings{
+    display: flex;
+    gap: 16px;
+}
+
+.btnGood{
+    width: 166px;
+    background: var(--back-btn);
+    border-radius: 100px;
+    cursor: pointer;
+    height: 48px;
+    padding: 4px;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.btnBad{
+    width: 166px;
+    background: var(--back-btn);
+    border-radius: 100px;
+    cursor: pointer;
+    height: 48px;
+    padding: 4px;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.likeBody{
+    background: var(--back-white);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like{
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+.btnText{
+    font-weight: 600;
+    color: var(--colortext-main);
+}
+
+.disLaik{
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transform: rotate(180deg);
+}

@@ -9,6 +9,7 @@ import Header from '../../../header/Header';
 import Navigate from '../../../../uicomponents/OneClickComponents/Navigate/Navigate';
 import { GoCopy } from "react-icons/go";
 import TransactionInfo from './TransactionInfo/Info';
+import RatingOrder from './TransactionInfo/orderRating/Rating';
 
 
 function OrderOneCLickAndP2p () {
@@ -50,13 +51,21 @@ function OrderOneCLickAndP2p () {
                <main className={style.main}>
                    <div className={style.mainContainer}>
                      <article className={style.titlesRow}>
-                        <h3 className={style.title}>{order.action === 'buy' ? 'Buy' : 'Sell'} {order.crypto}</h3>
+                        <h3 className={style.title}>{order.action === 'buy' && order.takerId === userId ? 'Buy' : 'Sell'} {order.crypto}</h3>
                         <div className={style.idOrderRow}>
                             <h5 className={style.dataOrder}>{order.date}</h5>
                             <h5 className={style.idOrder}>{order.id} <GoCopy className={style.copyBtn} /></h5>
                         </div>
                      </article>
+                     <div className={style.orderRow}>
+                        <div className={style.orderBasicInfo}>
                      <TransactionInfo/>
+                    <RatingOrder/>
+                        </div>
+                        <div className={style.chatOrder}>
+                            
+                        </div>
+                     </div>
                    </div>
                </main>
               </section>
