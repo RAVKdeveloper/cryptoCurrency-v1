@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import style from './style.module.css'
 import { AiOutlineLike } from "react-icons/ai";
-import { createRatingOrder, setAction, setAnonymus, setOpenModal } from '../../../../../../../redux/Slices/User/orderRatings';
+import { createRatingOrder, fetchOrderRating, putOrderRating, setAction, setAnonymus, setOpenModal } from '../../../../../../../redux/Slices/User/orderRatings';
 import { shortCutsOrderRatingBad, shortCutsOrderRatingGood } from '../../../../../../../db/dbPayment';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AccountContext, NickNameAndID } from '../../../../../../../App';
@@ -11,8 +11,9 @@ import { IoCloseSharp } from "react-icons/io5";
 function ModalRating () {
 
     const { orderWithDb } = useSelector(state => state.orderOneClick)
-    const { isAction, openModal, isAnonymus } = useSelector(state => state.orderRatings)
+    const { isAction, openModal, isAnonymus, orderRating } = useSelector(state => state.orderRatings)
     const [ order ] = orderWithDb
+    const [ rating ] = orderRating
     const dispatch = useDispatch()
     const [ textLen, setTextLen ] = useState('0')
     const textarea = useRef()
@@ -51,30 +52,57 @@ function ModalRating () {
        return dispatch(setAnonymus(false))
     }
 
+    const addValueTextareaDB = () => {
+         if(orderRating.length > 0) {
+             textarea.current.value = rating.rewievtext
+         } 
+    }
+
+    const getAnonumus = () => {
+        if(orderRating.length > 0) {
+            dispatch(setAnonymus(rating.anonymus))
+        }
+    }
+
     useEffect(() => {
     if(reqRating === true) {
        try{
+           const isGood = isAction === 'Good' ? true : false
+           const hoIsUser = userId === order.takerId ? order.makerId : order.takerId 
+   
+           const obj = {
+               rewierId: userId,
+               recipientId: hoIsUser,
+               good: isGood,
+               rewievtext: textarea.current.value,
+               rewierName: userNick,
+               anonymus: isAnonymus,
+               orderId: order.orderNo,
+               id: rating.id,
+           }
 
-        const isGood = isAction === 'Good' ? true : false
-        const hoIsUser = userId === order.takerId ? order.makerId : order.takerId 
+        if(orderRating.length < 1) {
 
-        const obj = {
-            rewierId: userId,
-            recipientId: hoIsUser,
-            good: isGood,
-            rewievtext: textarea.current.value,
-            rewierName: userNick,
-            anonymus: isAnonymus,
-            orderId: order.orderNo,
-        }
 
         dispatch(createRatingOrder(obj))
-          
+        dispatch(setOpenModal(false))
+
+        setReqRating(false)
+    } else if(orderRating.length > 0){
+         dispatch(putOrderRating(obj))
+         setReqRating(false)
+         dispatch(setOpenModal(false))
+    }
        } catch {
         alert('Error...')
        }
     }
-    }, [reqRating])
+    }, [reqRating, orderRating])
+
+    useEffect(() => {
+       addValueTextareaDB()
+       getAnonumus()
+    }, [])
 
     return (
 

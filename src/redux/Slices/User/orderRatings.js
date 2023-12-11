@@ -27,12 +27,45 @@ export const createRatingOrder = createAsyncThunk(
     }
 )
 
+export const fetchOrderRating = createAsyncThunk(
+    'fetchRating/fetchOrderRating',
+    async (obj) => {
+        const { rewierId, orderId } = obj
+        const { data } = await axios.get(`${$apiCreateRating}?orderId=${orderId}&rewier=${rewierId}`)
+        return data
+    }
+)
+
+export const deleteOrderRating = createAsyncThunk(
+    'deleteRating/deleteOrderRating',
+    async (id) => {
+       const { data } = await axios.delete(`${$apiCreateRating}/${id}`)
+
+       return data
+    }
+)
+
+export const putOrderRating = createAsyncThunk(
+    'putRating/putOrderRating',
+    async (obj) => {
+        const { id, good, rewievtext, anonymus } = obj
+        const { data } = await axios.put(`${$apiCreateRating}/${id}`, {
+            good: good,
+            rewievtext: rewievtext,
+            anonymus: anonymus,
+        })
+
+        return data
+    }
+)
 
 const initialState = {
     openModal: false, 
     isAction: '',
     isRequest: false,
     isAnonymus: false,
+    orderRating: [],
+    ratingStatus: 'pending'
 }
 
 
@@ -50,7 +83,22 @@ export const orderRatings = createSlice({
         state.isAnonymus = action.payload
        }
     },
+    extraReducers: {
+       [fetchOrderRating.fulfilled]: (state, action) => {
+           state.orderRating = action.payload
+           state.ratingStatus = 'succes'
+       },
+       [fetchOrderRating.rejected]: (state) => {
+           state.ratingStatus = 'error'
+       },
+       [createRatingOrder.fulfilled]: (state, action) => {
+           state.orderRating = [action.payload]
+       },
+       [putOrderRating.fulfilled]: (state, action) => {
+           state.orderRating = [action.payload]
+       }
+    },
 })
 
 export const { setAction, setOpenModal, setAnonymus } = orderRatings.actions
-export default orderRatings.reducer
+export default orderRatings.reducer 
