@@ -19,6 +19,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchP2PAccount } from './redux/Slices/User/P2PAccount';
 import OrderOneCLickAndP2p from './components/pages/UserOrders/OneCLickAndP2P/Order';
+import ListOrders from './components/pages/ListOrders/ListOrders';
 
 export const UserContext = createContext(true);
 export const AccountContext = createContext('');
@@ -86,6 +87,7 @@ function App() {
           <Route path='/user/assets/deposit' element={<Deposit/>}/>
           <Route path='/user/assets/oneClickBuy' element={<OneClickBuy/>}/>
           <Route path='/user/one-click-buy/order/:id' element={<OrderOneCLickAndP2p/>} />
+          <Route path='/fiat/trade/users/orderList' element={<ListOrders/>} />
           </>
         }
         <Route path='*' element={<Error/>}/>

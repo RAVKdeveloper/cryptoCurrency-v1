@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import style from './style.module.css';
 import { FaArrowRight } from "react-icons/fa";
 
@@ -18,7 +19,7 @@ function Navigate () {
                 </ul>
             </div>
             <div className={style.right}>
-                <p className={style.links}>Orders <FaArrowRight className={style.arrow}/></p>
+                <NavLink className={({ isActive }) => isActive ? `${style.links} ${style.active}` : style.links} to={'/fiat/trade/users/orderList'} >Orders <FaArrowRight className={style.arrow}/></NavLink>
                 <p className={style.links}>User Center</p>
             </div>
         </section>

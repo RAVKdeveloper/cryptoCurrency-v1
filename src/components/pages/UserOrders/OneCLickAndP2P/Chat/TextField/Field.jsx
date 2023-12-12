@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import style from './style.module.css'
 import { FaPlus } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
@@ -13,10 +13,10 @@ function TextFieldChat () {
     const [ click, setClick ] = useState('')
     const { orderWithDb } = useSelector(state => state.orderOneClick)
     const [ order ] = orderWithDb
+    const { message } = useSelector(state => state.orderChat)
     const { userId } = useContext(AccountContext)
     const { userNick } = useContext(NickNameAndID)
     const dispatch = useDispatch()
-
 
     useEffect(() => {
         if(click === true) {
@@ -32,6 +32,12 @@ function TextFieldChat () {
         setValue('')
         }
     }, [click])
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         dispatch(fetchMessage(order.id))
+    //       }, 1000 * 10)
+    // }, [click])
 
 
     return (

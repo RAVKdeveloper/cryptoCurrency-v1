@@ -1,0 +1,15 @@
+.main{
+    margin-top: 58px;
+}
+
+.navBack{
+    background: var(--back-white);
+    padding-bottom: 22px;
+    box-shadow: inset 0 -1px 0 #f2f2f2;
+}
+
+.navigateContainer{
+    width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}

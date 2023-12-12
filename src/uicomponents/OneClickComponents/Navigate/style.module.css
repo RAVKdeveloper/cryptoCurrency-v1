@@ -17,6 +17,7 @@
 .links{
     cursor: pointer;
     transition: color .4s ease;
+    color: var(--noactive-color);
 }
 
 .links.active{
