@@ -1,0 +1,54 @@
+.root{
+    padding: 24px 32px;
+    box-shadow: inset 0 -1px 0 var(--back-btn);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgb(247 166 0 / 12%);
+    color: var(--color-accent);
+    font-size: 23px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    user-select: none;
+}
+
+.nickName{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--colortext-main);
+    transition: color .4s ease;
+}
+
+.nickName:hover{
+    color: var(--color-accent);
+    transition: color .4s ease;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.verName{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+}
+
+.iconVer{
+    color: var(--color-accent);
+    width: 17px;
+    height: 17px;
+}

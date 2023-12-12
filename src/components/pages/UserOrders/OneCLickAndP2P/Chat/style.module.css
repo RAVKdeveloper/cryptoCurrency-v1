@@ -1,0 +1,6 @@
+.root{
+    margin-top: 32px;
+    width: 400px;
+    background: var(--back-white);
+    border-radius: 16px;
+}

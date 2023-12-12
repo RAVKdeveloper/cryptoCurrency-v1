@@ -1,0 +1,84 @@
+.root{
+    padding: 16px 32px;
+    overflow-y: scroll;
+    height: 440px;
+}
+
+.root::-webkit-scrollbar{
+    width: 0;
+}
+
+.date{
+    font-size: 12px;
+    text-align: center;
+    color: var(--noactive-color);
+}
+
+.messageAndIconbody{
+    padding: 16px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.icon{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgb(247 166 0 / 12%);
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--color-accent);
+
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+}
+
+.contentMesAndIcon{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.userNick{
+    font-size: 12px;
+    color: var(--noactive-color);
+}
+
+.messageAndIcon{
+    background: #fef1d6;
+    padding: 12px;
+    border-radius: 8px;
+    line-height: 18px;
+    word-break: break-word;
+    max-width: 280px;
+}
+
+.mesDate{
+    font-size: 10px;
+    color: var(--noactive-color);
+    margin-top: 7px;
+}
+
+.message{
+    margin: 16px 0;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.mesText{
+    padding: 12px;
+    background: var(--back-btn);
+    border-radius: 8px;
+    max-width: 280px;
+    word-break: break-word;
+    line-height: 18px;
+}
+
+.dateMy{
+    color: var(--noactive-color);
+    font-size: 10px;
+    margin-top: 7px;
+}

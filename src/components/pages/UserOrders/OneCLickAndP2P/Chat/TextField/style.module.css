@@ -1,0 +1,55 @@
+.root{
+    padding: 14px 32px;
+    border-top: 1px solid rgb(245, 245, 245);
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.input{
+    width: 236px;
+    height: 32px;
+    line-height: 18px;
+    font-size: 14px;
+    resize: none;
+    padding: 5px;
+}
+
+.input::placeholder{
+    color: rgb(207, 207, 207);
+}
+
+.input::-webkit-scrollbar{
+    width: 0;
+}
+
+
+.btnRow{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--back-btn);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .4s ease;
+    user-select: none;
+}
+
+.btn:hover{
+    background: var(--color-accent);
+    transition: all .4s ease;
+}
+
+.btn.block{
+    cursor: not-allowed;
+}

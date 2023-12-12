@@ -63,7 +63,7 @@ const initialState = {
     openModal: false, 
     isAction: '',
     isRequest: false,
-    isAnonymus: false,
+    isAnonymus: false,  
     orderRating: [],
     ratingStatus: 'pending'
 }

@@ -66,35 +66,45 @@ function ModalRating () {
 
     useEffect(() => {
     if(reqRating === true) {
+
        try{
+
            const isGood = isAction === 'Good' ? true : false
            const hoIsUser = userId === order.takerId ? order.makerId : order.takerId 
-   
-           const obj = {
-               rewierId: userId,
-               recipientId: hoIsUser,
-               good: isGood,
-               rewievtext: textarea.current.value,
-               rewierName: userNick,
-               anonymus: isAnonymus,
-               orderId: order.orderNo,
-               id: rating.id,
-           }
 
         if(orderRating.length < 1) {
-
+    
+            const obj = {
+                rewierId: userId,
+                recipientId: hoIsUser,
+                good: isGood,
+                rewievtext: textarea.current.value,
+                rewierName: userNick,
+                anonymus: isAnonymus,
+                orderId: order.orderNo,
+            }
 
         dispatch(createRatingOrder(obj))
         dispatch(setOpenModal(false))
 
         setReqRating(false)
+
     } else if(orderRating.length > 0){
+
+        const obj = {
+                good: isGood,
+                rewievtext: textarea.current.value,
+                anonymus: isAnonymus,
+                id: rating.id,
+        }
+
          dispatch(putOrderRating(obj))
          setReqRating(false)
          dispatch(setOpenModal(false))
     }
        } catch {
         alert('Error...')
+        setReqRating(false)
        }
     }
     }, [reqRating, orderRating])

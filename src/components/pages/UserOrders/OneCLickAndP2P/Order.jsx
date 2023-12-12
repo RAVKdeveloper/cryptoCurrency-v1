@@ -10,6 +10,8 @@ import Navigate from '../../../../uicomponents/OneClickComponents/Navigate/Navig
 import { GoCopy } from "react-icons/go";
 import TransactionInfo from './TransactionInfo/Info';
 import RatingOrder from './TransactionInfo/orderRating/Rating';
+import FaqOrder from './TransactionInfo/orderFaq/Faq';
+import ChatP2P from './Chat/Chat';
 
 
 function OrderOneCLickAndP2p () {
@@ -35,12 +37,14 @@ function OrderOneCLickAndP2p () {
     }, [])
 
 
+    if(statusGetOrder === 'loading') {
+        return <LoaderOrder/>
+    }
+
     return (  
 
+        orderWithDb.length > 0 &&
         <section className={style.root}>
-            {statusGetOrder === 'loading' ?
-             <LoaderOrder/>
-             :
              <section className={style.content}>
               <Header/>
               <div className={style.navigation}>
@@ -61,15 +65,15 @@ function OrderOneCLickAndP2p () {
                         <div className={style.orderBasicInfo}>
                      <TransactionInfo/>
                     <RatingOrder/>
+                    <FaqOrder/>
                         </div>
                         <div className={style.chatOrder}>
-                            
+                            <ChatP2P/> 
                         </div>
                      </div>
                    </div>
                </main>
               </section>
-            }
         </section>
     )
 }
