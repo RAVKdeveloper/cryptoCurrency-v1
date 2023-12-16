@@ -1,5 +1,7 @@
 .main{
     margin-top: 58px;
+    background: var(--back-main);
+    padding-bottom: 420px;
 }
 
 .navBack{
@@ -12,4 +14,10 @@
     width: 1230px;
     padding: 0 15px;
     margin: 0 auto;
+}
+
+.globalContainer{
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 0 15px;
 }

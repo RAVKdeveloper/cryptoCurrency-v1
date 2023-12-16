@@ -43,3 +43,8 @@ export const arrChain = [
         name: 'AVAXC'
       },
 ]
+
+
+export const arrOrderActionFilter = ['Buy', 'Sell']
+
+export const arrOrderStatusFilter = ['pending', 'To be released', 'canseled', 'complete']

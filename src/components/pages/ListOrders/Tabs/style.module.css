@@ -1,0 +1,26 @@
+.root{
+    margin-top: 24px;
+    background: var(--back-white);
+    padding: 0px 32px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.tab{
+    user-select: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--noactive-color);
+    height: 66px;
+    display: flex;
+    align-items: center;
+}
+
+.tab.active{
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+}

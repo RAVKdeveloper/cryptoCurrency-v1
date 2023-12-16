@@ -1,6 +1,10 @@
 import Navigate from '../../../uicomponents/OneClickComponents/Navigate/Navigate';
+import Footer from '../../footer/Footer';
 import Header from '../../header/Header';
+import TabsOrderList from './Tabs/tabs';
+import FilterOrderList from './Filter/filters'
 import style from './style.module.css'
+import List from './List/list';
 
 
 function ListOrders () {
@@ -15,7 +19,13 @@ function ListOrders () {
                     <Navigate/>
                 </div>
                 </div>
+                <div className={style.globalContainer}>
+                <TabsOrderList/>
+                <FilterOrderList/>
+                <List/>
+                </div>
             </main>
+            <Footer/>
         </section>
     )
 }

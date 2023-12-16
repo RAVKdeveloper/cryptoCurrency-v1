@@ -1,0 +1,25 @@
+.root{
+    margin-top: 24px;
+    background: var(--back-white);
+    border-bottom: 1px solid var(--back-btn);
+    padding: 24px 32px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectBox{
+    position: relative;
+}
+
+.test{
+    height: 30px;
+    width: 150px;
+    background: var(--back-btn);
+}
+
+.test::-webkit-calender-picker-indicator{
+    opacity: 0;
+}
