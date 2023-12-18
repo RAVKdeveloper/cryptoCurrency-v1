@@ -1,6 +1,137 @@
 .root{
-    padding: 10px 32px;
     background: var(--back-white);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+
+.card{
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--colortext-main);
+    transition: all .4s ease;
+}
+
+.card:hover{
+    background: #fef8eb;
+    transition: all .4s ease;
+}
+
+.one{
+    width: 188px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.action{
+    font-size: 14px;
+    color: #e04040;
+    font-weight: 700;
+}
+
+.action.buy{
+    color: #24ae64;
+}
+
+.orderNo{
+    font-size: 12px;
+    color: #333;
+    transition: color .3s ease;
+}
+
+.orderNo:hover{
+    color: var(--color-accent);
+    transition: color .3s ease;
+}
+
+.fiatAmount{
+    width: 139.32px;
+    font-weight: 600;
+}
+
+.price{
+    width: 88.8px;
+}
+
+.coinAmount{
+    width: 142px;
+}
+
+.commisia{
+    width: 118.81px;
+}
+
+.contragent{
+    width: 130.28px;
+}
+
+.status{
+    width: 110.8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chek{
+   background: rgb(6, 170, 6);
+   border-radius: 50%;
+   color: var(--header-text);
+}
+
+.time{
+    width: 170px;
+}
+
+.message{
+    margin-left: 10px;
+    background: var(--back-btn);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* if empty */
+
+.empty{
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.emptyIcon{
+    width: 68.75px;
+    height: 55px;
+}
+
+.emptyText{
+    color: #999;
+    font-size: 14px;
+}
+
+.canseled{
+    background: var(--noactive-color);
+    border-radius: 50%;
+    color: var(--header-text);
+}
+
+.clock{
+    color: var(--color-accent);
+}
+
+.titleAction{
+    padding: 20px 32px;
+    color: var(--noactive-color);
+    font-weight: 500;
+    font-size: 18px;
 }

@@ -20,6 +20,8 @@ function RatingOrder () {
 
     const isTitle = orderRating.length < 1 ? 'Leave A Review' : 'My Ratings'
 
+    console.log(orderRating)
+
 
     const handlerOpenModal = () => {
         dispatch(setOpenModal(true))
@@ -28,7 +30,7 @@ function RatingOrder () {
     useEffect(() => {
        const obj = {
         rewierId: userId,
-        orderId: order.orderNo,
+        orderId: order.id,
        }
 
        dispatch(fetchOrderRating(obj))  
@@ -36,7 +38,10 @@ function RatingOrder () {
 
     const deleteRating = (id) => {
         try {
-            dispatch(deleteOrderRating(id))
+
+            const obj = { id: id, orderId: order.id }
+
+            dispatch(deleteOrderRating(obj))
     
             setTimeout(() => {
                 const obj = {

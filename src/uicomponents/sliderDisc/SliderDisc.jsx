@@ -7,6 +7,8 @@ import { arrSlider } from '../../db/dbSlider';
 
 function SliderDisc ({ activeTab }) {
 
+    const active = activeTab - 1
+
     return (
 
         <Swiper
@@ -16,70 +18,8 @@ function SliderDisc ({ activeTab }) {
         speed={400}
       >
         {
-        activeTab === 1 ? arrSlider[0].map((obj, id) => (
-            <SwiperSlide key={id} className={Style.slider__slide}>
-            <div className={Style.user__info__body}>
-               <img src={obj.img} alt="avatar" className={Style.image__avatar} />
-               <div className={Style.user__info__column}>
-                   <p className={Style.nick}>{obj.nick}</p>
-                   <p className={Style.followers}>{obj.follow}</p>
-               </div>
-            </div>
-            <p className={Style.titles__slide}>7D ROI</p>
-            <p className={Style.value__slide}>65,44%</p>
-            <p className={Style.titles__slide__two}>7d Followers' Pnl</p>
-            <p className={Style.value__slide}>95,993.72</p>
-            <div className={Style.copy__slide__row}>
-               <a href="#" className={Style.link}>Copy</a>
-               <AiOutlineArrowRight className={Style.arrow__link}/>
-            </div>
-       </SwiperSlide>
-        )) : null
-        }
-        {
-        activeTab === 2 ? arrSlider[1].map((obj, id) => (
-            <SwiperSlide key={id} className={Style.slider__slide}>
-            <div className={Style.user__info__body}>
-               <img src={obj.img} alt="avatar" className={Style.image__avatar} />
-               <div className={Style.user__info__column}>
-                   <p className={Style.nick}>{obj.nick}</p>
-                   <p className={Style.followers}>{obj.follow}</p>
-               </div>
-            </div>
-            <p className={Style.titles__slide}>{obj.nameone}</p>
-            <p className={Style.value__slide}>{obj.valueone}</p>
-            <p className={Style.titles__slide__two}>{obj.nametwo}</p>
-            <p className={Style.value__slide}>{obj.valuetwo}</p>
-            <div className={Style.copy__slide__row}>
-               <a href="#" className={Style.link}>{obj.link}</a>
-               <AiOutlineArrowRight className={Style.arrow__link}/>
-            </div>
-       </SwiperSlide>
-        )) : null
-        }
-        {
-        activeTab === 3 ? arrSlider[2].map((obj, id) => (
-            <SwiperSlide key={id} className={Style.slider__slide}>
-            <div className={Style.user__info__body}>
-               <div className={Style.user__info__column}>
-                   <p className={Style.nick}>{obj.nick}</p>
-                   <p className={Style.followers}>{obj.follow}</p>
-               </div>
-            </div>
-            <p className={Style.titles__slide}>{obj.nameone}</p>
-            <p className={Style.value__slide}>{obj.valueone}</p>
-            <p className={Style.titles__slide__two}>{obj.nametwo}</p>
-            <p className={Style.value__slide}>{obj.valuetwo}</p>
-            <div className={Style.copy__slide__row}>
-               <a href="#" className={Style.link}>{obj.link}</a>
-               <AiOutlineArrowRight className={Style.arrow__link}/>
-            </div>
-       </SwiperSlide>
-        )) : null
-        }
-        {
-            activeTab === 4 ? arrSlider[3].map((obj, id) => (              
-             <SwiperSlide key={id} className={`${Style.slider__slide} ${Style.big}`}>
+            activeTab === 4 ? arrSlider[active].map((obj) => (              
+             <SwiperSlide key={obj.id} className={`${Style.slider__slide} ${Style.big}`}>
                 <div className={Style.big__row__img}>
                     <img src={obj.img} alt={obj.nick} className={Style.img__big} />
                     <span className={Style.nick__big}>{obj.nick}</span>
@@ -113,7 +53,28 @@ function SliderDisc ({ activeTab }) {
             </div>
               </SwiperSlide>
             )) 
-            : null
+            : 
+            arrSlider[active].map((obj) => (
+                <SwiperSlide key={obj.id} className={Style.slider__slide}>
+                <div className={Style.user__info__body}>
+                    {
+                       activeTab !== 3 && <img src={obj.img} alt="avatar" className={Style.image__avatar} />
+                    }
+                   <div className={Style.user__info__column}>
+                       <p className={Style.nick}>{obj.nick}</p>
+                       <p className={Style.followers}>{obj.follow}</p>
+                   </div>
+                </div>
+                <p className={Style.titles__slide}>{obj.nameone}</p>
+                <p className={Style.value__slide}>{obj.valueone}</p>
+                <p className={Style.titles__slide__two}>{obj.nametwo}</p>
+                <p className={Style.value__slide}>{obj.valuetwo}</p>
+                <div className={Style.copy__slide__row}>
+                   <a href="#" className={Style.link}>Copy</a>
+                   <AiOutlineArrowRight className={Style.arrow__link}/>
+                </div>
+           </SwiperSlide>
+            ))
         }
       </Swiper>
 

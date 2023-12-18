@@ -26,6 +26,8 @@ function Header () {
     const { userId, setUserId } = useContext(AccountContext)
     const [click, setClick] = useState(false);
 
+    const assetsLink = 'http://localhost:3002'
+
     useEffect(() => {
         if(click === true) {
             fetch(URL, {
@@ -82,6 +84,7 @@ return (
     :
     <section className="account__header__row">
     <div className="btn__deposit__header">Deposit</div>
+    <a href={assetsLink} className="assets__link">Assets</a>
     <div className="avatar__image__hover__wrap">
     <NavLink to="/dashbord">
     <img src={avatarImg} alt="avatar" className="avatar__icon__header" />

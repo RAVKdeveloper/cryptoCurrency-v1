@@ -20,7 +20,6 @@ function ContentChat () {
     }, [])
 
     useEffect(() => {
-        console.log(message)
         setTimeout(() => {
             dispatch(fetchMessage(order.id))
         }, 20000)
@@ -51,12 +50,6 @@ function ContentChat () {
                </article>
               ))
            }
-           <article className={style.message}>
-            <div className={style.mesText}>
-               <NavLink to={"/user/one-click-buy/order/17023697139142"}>Hello</NavLink>
-               <p className={style.dateMy}>{order.date}</p>
-            </div>
-           </article>
         </section>
     )
 }

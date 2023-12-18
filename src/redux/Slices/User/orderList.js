@@ -9,9 +9,9 @@ const $apiCoinsList = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/cryptoli
 export const fetchOrderListTaker = createAsyncThunk(
     'fetchOrderListTaker/fetchUsersOrderListTaker',
     async (obj) => {
-        const { str, id } = obj
-        const isAction = str === '' ? '' : `&status=${str}`
-        const { data } = await axios.get(`${$apiOrderList}?takerId=${id}${isAction}`)
+        const { actionType, id ,page } = obj
+        const isAction = actionType === '' ? '' : `&status=${actionType}`
+        const { data } = await axios.get(`${$apiOrderList}?takerId=${id}${isAction}&sortby=date&order=desc&page=${page}&limit=5`)
 
         return data
     }
@@ -20,9 +20,9 @@ export const fetchOrderListTaker = createAsyncThunk(
 export const fetchOrderListMaker = createAsyncThunk(
   'fetchOrderListMaker/fetchUsersOrderListMaker',
   async (obj) => {
-      const { str, id } = obj
-      const isAction = str === '' ? '' : `&status=${str}`
-      const { data } = await axios.get(`${$apiOrderList}?makerId=${id}${isAction}`)
+      const { actionType, id, page } = obj
+      const isAction = actionType === '' ? '' : `&status=${actionType}`
+      const { data } = await axios.get(`${$apiOrderList}?makerId=${id}${isAction}&sortby=date&order=desc&page=${page}&limit=5`)
 
       return data
   }
@@ -50,6 +50,7 @@ const initialState = {
     statusPrewiev: 'All',
     isOpenStatus: false,
     date: '',
+    currentPage: 1,
 }
 
 
@@ -80,6 +81,9 @@ export const orderList = createSlice({
        }, 
        setDateFetch: (state, action) => {
          state.date = action.payload 
+       },
+       setCurrentPage: (state, action) => {
+        state.currentPage = action.payload
        }
     },
     extraReducers: {
@@ -104,5 +108,5 @@ export const orderList = createSlice({
 })
 
 
-export const { setActionType, setOpenCoin, setOpenType, setCoinPrewiev, setTypePrewiev, setStatusPrewiev, setIsOpenStatus, setDateFetch } = orderList.actions
+export const { setActionType, setOpenCoin, setOpenType, setCoinPrewiev, setTypePrewiev, setStatusPrewiev, setIsOpenStatus, setDateFetch, setCurrentPage } = orderList.actions
 export default orderList.reducer

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 
 
-const $apiCreateRating = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/ratingsUsersP2P'
+const $apiCreateRating = 'https://654f4fed358230d8f0cd31a4.mockapi.io/ravk/ordersP2PAndOneClickBuy/'
 
 
 export const createRatingOrder = createAsyncThunk(
@@ -11,7 +11,7 @@ export const createRatingOrder = createAsyncThunk(
 
         const { rewierId, recipientId, good, rewievtext, rewierName, anonymus, orderId } = obj
 
-        const { data } = await axios.post(`${$apiCreateRating}`, {
+        const { data } = await axios.post(`${$apiCreateRating}${orderId}/ratingsUsersP2P`, {
             createdAt: Date.now(),
             rewier: rewierId,
             recipient: recipientId,
@@ -31,15 +31,16 @@ export const fetchOrderRating = createAsyncThunk(
     'fetchRating/fetchOrderRating',
     async (obj) => {
         const { rewierId, orderId } = obj
-        const { data } = await axios.get(`${$apiCreateRating}?orderId=${orderId}&rewier=${rewierId}`)
+        const { data } = await axios.get(`${$apiCreateRating}${orderId}/ratingsUsersP2P?rewier=${rewierId}`)
         return data
     }
 )
 
 export const deleteOrderRating = createAsyncThunk(
     'deleteRating/deleteOrderRating',
-    async (id) => {
-       const { data } = await axios.delete(`${$apiCreateRating}/${id}`)
+    async (obj) => {
+        const { id, orderId } = obj
+       const { data } = await axios.delete(`${$apiCreateRating}${orderId}/ratingsUsersP2P/${id}`)
 
        return data
     }
@@ -48,8 +49,8 @@ export const deleteOrderRating = createAsyncThunk(
 export const putOrderRating = createAsyncThunk(
     'putRating/putOrderRating',
     async (obj) => {
-        const { id, good, rewievtext, anonymus } = obj
-        const { data } = await axios.put(`${$apiCreateRating}/${id}`, {
+        const { id, good, rewievtext, anonymus, orderId } = obj
+        const { data } = await axios.put(`${$apiCreateRating}${orderId}/ratingsUsersP2P/${id}`, {
             good: good,
             rewievtext: rewievtext,
             anonymus: anonymus,

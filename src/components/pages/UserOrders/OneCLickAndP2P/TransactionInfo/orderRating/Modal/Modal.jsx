@@ -81,7 +81,7 @@ function ModalRating () {
                 rewievtext: textarea.current.value,
                 rewierName: userNick,
                 anonymus: isAnonymus,
-                orderId: order.orderNo,
+                orderId: order.id,
             }
 
         dispatch(createRatingOrder(obj))
@@ -96,6 +96,7 @@ function ModalRating () {
                 rewievtext: textarea.current.value,
                 anonymus: isAnonymus,
                 id: rating.id,
+                orderId: order.id
         }
 
          dispatch(putOrderRating(obj))

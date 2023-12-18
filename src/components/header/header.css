@@ -152,3 +152,17 @@
     cursor: pointer;
     font-weight: 700;
 }
+
+.assets__link{
+    cursor: pointer;
+    user-select: none;
+    color: var(--header-text);
+    font-size: 14px;
+    font-weight: 400;
+    transition: color .3s ease;
+}
+
+.assets__link:hover{
+    color: var(--color-accent);
+    transition: color .3s ease;
+}

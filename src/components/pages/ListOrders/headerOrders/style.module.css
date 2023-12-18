@@ -1,0 +1,49 @@
+.root{
+    background: var(--back-white);
+    border-bottom: 1px solid var(--back-btn);
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+}
+
+.root span{
+    color: var(--noactive-color);
+    height: 48px;
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+}
+
+.one{
+    width: 188px;
+}
+
+.two{
+    width: 139.32px;
+}
+
+.three{
+    width: 88.8px;
+}
+
+.four{
+    width: 142px;
+}
+
+.five{
+    width: 119px;
+}
+
+.six{
+    width: 130px;
+}
+
+.seven{
+    width: 111px;
+}
+
+.eigth{
+    width: 170px;
+}

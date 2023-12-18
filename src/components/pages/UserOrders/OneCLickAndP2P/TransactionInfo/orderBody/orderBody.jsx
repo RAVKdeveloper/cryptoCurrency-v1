@@ -5,6 +5,7 @@ import CardPay from './CardPay/card';
 import { useContext, useEffect, useId, useState } from 'react';
 import { chekBalanceFetch, completeOrders, getOrderUser, getReleased, putBalanceMinus, putOrderStatus } from '../../../../../../redux/Slices/orderOneClick';
 import { AccountContext } from '../../../../../../App';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -60,7 +61,7 @@ function OrderBody () {
                     type: 'OneClickBuy',
                     status: 'Canseled',
                     id: order.id,
-                    statusOrder: 'loading'
+                    statusOrder: 'canseled'
                   }
                   dispatch(putOrderStatus(obj))
             } catch {
@@ -161,7 +162,7 @@ function OrderBody () {
                     order.orderStatus === 'To be released' && userId === order.takerId && order.action === 'buy' ?
                     <div onClick={() => setGoCanseled(true)} className={style.bntCansel}>Cansel</div>
                     :
-                    <div className={style.bntCansel}>View My Assets</div>
+                    <NavLink to={"/dashbord"} className={style.bntCansel}>View My Assets</NavLink>
                     :
                     null
                 }
@@ -180,7 +181,7 @@ function OrderBody () {
                      order.orderStatus === 'To be released' && userId === order.takerId ?
                      <div onClick={() => setGoReleased(true)} className={style.releseCoinBtn}>Relese Coins</div>
                      :
-                     <div className={style.bntCansel}>View My Assets 1</div>
+                     <NavLink to={"/dashbord"} className={style.bntCansel}>View My Assets</NavLink>
                      :
                      null
                 }

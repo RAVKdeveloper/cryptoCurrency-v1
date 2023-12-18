@@ -5,6 +5,7 @@ import TabsOrderList from './Tabs/tabs';
 import FilterOrderList from './Filter/filters'
 import style from './style.module.css'
 import List from './List/list';
+import HeadOrderList from './headerOrders';
 
 
 function ListOrders () {
@@ -22,6 +23,7 @@ function ListOrders () {
                 <div className={style.globalContainer}>
                 <TabsOrderList/>
                 <FilterOrderList/>
+                <HeadOrderList/>
                 <List/>
                 </div>
             </main>

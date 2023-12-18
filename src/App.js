@@ -1,5 +1,5 @@
 
-import { createContext, useCallback } from 'react';
+import { createContext } from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './components/pages/main/Main';
@@ -12,12 +12,8 @@ import { URL } from './components/pages/dashbord/AccountInfo/AccountInfo';
 import PreLoader from './uicomponents/PreLoader/PreLoader';
 import Registration from './components/pages/Auth/Registration/Registration';
 import Login from './components/pages/Auth/Login/Login';
-import Test from './components/testapi/Test';
 import Deposit from './components/pages/UserAssets/Deposit/Deposit';
 import OneClickBuy from './components/pages/UserAssets/One-ClickBuy/OneClickBuy';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchP2PAccount } from './redux/Slices/User/P2PAccount';
 import OrderOneCLickAndP2p from './components/pages/UserOrders/OneCLickAndP2P/Order';
 import ListOrders from './components/pages/ListOrders/ListOrders';
 
